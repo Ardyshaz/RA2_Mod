@@ -1,0 +1,19 @@
+# Publish only mod configuration and documentation.
+/*
+!/.gitignore
+!/README.md
+!/INI/
+!/doc/
+/INI/*
+!/INI/Map Code/
+!/INI/Game Options/
+/INI/Map Code/*
+!/INI/Map Code/*.ini
+!/INI/Map Code/*.original_backup
+/INI/Game Options/*
+!/INI/Game Options/AI/
+/INI/Game Options/AI/*
+!/INI/Game Options/AI/Extreme AI Beta.ini
+/doc/*
+!/doc/status.md
+!/doc/backups/
