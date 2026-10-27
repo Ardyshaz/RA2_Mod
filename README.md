@@ -4,6 +4,21 @@ Configuration mod for CnCNet Yuri's Revenge: slower Nightmare AI, instant constr
 
 Requires a separately installed compatible copy of Yuri's Revenge with CnCNet, Ares, and Phobos. Game executables and assets are not included.
 
+## Mod features at a glance
+
+- **Instant build:** Very fast construction of buildings, infantry, vehicles, aircraft, and ships. Also benefits AI.
+- **Elite rank (3 chevrons):** Build the free Elite Combat Academy to give eligible newly produced units Elite rank.
+- **Allied nuclear reactor:** Allies can build a free nuclear reactor immediately after deploying their MCV; also available to Soviet and Yuri factions.
+- **+2000 power:** The custom reactor supplies a large amount of power and unlocks power-dependent construction.
+- **Free player buildings:** The academy and custom reactor cost $0 and are configured to prevent AI construction.
+- **Larger build queues:** Queue up to 99 items.
+- **Slower Nightmare AI:** Longer team creation intervals give you more time to prepare; about 3 minutes per check at 30 FPS, with actual attack timing varying.
+- **Active enemy attacks:** Increased team caps, faster AI base building, and restored retaliation compared with the earlier overly passive settings.
+- **Reduced AI economy bonuses:** Removes the original Nightmare 4800 income multiplier and virtual purifier bonuses.
+- **No parallel AI production:** Prevents simultaneous AI production queues within each production category.
+- **All factions configured:** Academy and custom reactor ownership includes all ten countries.
+- **Ten customized game modes:** Shared changes cover Battle/Standard, Cooperative, Free For All, Land Rush, Meat Grinder, Megawealth, Naval War, Survival, Team Alliance, and Unholy Alliance.
+
 ## Included mods and changes
 
 | Modification | What it does |
