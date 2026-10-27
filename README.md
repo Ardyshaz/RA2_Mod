@@ -4,6 +4,47 @@ Configuration mod for CnCNet Yuri's Revenge: slower Nightmare AI, instant constr
 
 Requires a separately installed compatible copy of Yuri's Revenge with CnCNet, Ares, and Phobos. Game executables and assets are not included.
 
+## Included mods and changes
+
+| Modification | What it does |
+| --- | --- |
+| Instant construction | Sets global `BuildSpeed=0.001` for very fast production and `BuildupTime=0.001` for fast building placement animations. This applies globally, including AI; actual production time depends on the item and engine rules. |
+| Larger production queues | Sets `MaximumQueuedObjects=99`. |
+| Elite Combat Academy | Adds the free `PLAYERACAD` building, available after deploying an Allied, Soviet, or Yuri construction yard. Uses the hospital image, requires no power, has a build limit of one, and is configured with `AIBuildThis=no`. |
+| Elite training | The academy sets infantry, vehicle, aircraft, and building academy veterancy to `2.0`, intended to give eligible newly produced units Elite rank (three chevrons). Build the academy before producing your army. |
+| Player Nuclear Reactor | Adds free `PLAYERNRCT`, available after deploying a construction yard, with **+2000 power**, no tech-center requirement, and `AIBuildThis=no`. It also satisfies the power prerequisite for further construction. |
+| Original reactor restriction | Sets the standard Soviet `NANRCT` to `TechLevel=-1` and `AIBuildThis=no`; the custom reactor is the player's replacement. |
+| Baseline anti-rush rules | The ten customized map-code files set slower team creation, reduced AI economy bonuses, smaller team caps, no global hunt/fire-sale/team retaliation, and no parallel AI unit queues. Some settings are overridden by the selected AI modifier. |
+| Nightmare AI anti-rush patch | Directly adjusts RAZER's Nightmare AI to preserve slower team creation and reduced economic bonuses when Nightmare is selected. Details appear below. |
+| AI academy suppression attempt | Map code sets academy bonuses on `RAZER-GAOREP`, `RAZER-NAINDP`, and `RAZER-NACLON` to zero. However, the later Nightmare option defines them as `1`, so AI starting at recruit rank is **not guaranteed** with Nightmare selected. |
+
+The academy and custom reactor list all ten countries as owners: America, Korea, France, Germany, Great Britain, Russia, Iraq, Cuba, Libya, and Yuri. Their faction prerequisites are configured for Allied, Soviet, and Yuri construction yards; gameplay across every country has not been verified.
+
+### Customized game modes
+
+The shared construction, academy, reactor, and baseline anti-rush changes are present in these files:
+
+| Mode | Configuration |
+| --- | --- |
+| Battle / Standard | `INI/Map Code/Standard.ini` |
+| Cooperative | `INI/Map Code/Cooperative.ini` |
+| Free For All | `INI/Map Code/Free For All.ini` |
+| Land Rush | `INI/Map Code/Land Rush.ini` |
+| Meat Grinder | `INI/Map Code/Meat Grinder.ini` |
+| Megawealth | `INI/Map Code/Megawealth.ini` |
+| Naval War | `INI/Map Code/Naval War.ini` |
+| Survival | `INI/Map Code/Survival.ini` |
+| Team Alliance | `INI/Map Code/Team Alliance.ini` |
+| Unholy Alliance | `INI/Map Code/Unholy Alliance.ini` |
+
+Other map-code files included in this repository retain their existing mode rules. They do not all contain the shared custom modifications. Custom maps may impose additional overrides or scripted attacks.
+
+### Existing Nightmare content retained
+
+This mod uses **Nightmare AI V1.0.0 by RAZER**, with its existing custom task forces, team scripts, AI triggers, and AI-specific structures. Those include Allied/Soviet/Yuri refineries, a Slave Miner, Industrial Plant, Ore Processor, Cloning Vats, Bio Reactor, and AI versions of base defenses. These are retained Nightmare features, alongside the local anti-rush changes above.
+
+**CnCNet** supplies the skirmish client; **Ares** supplies the academy functionality; **Phobos** supplies additional engine features used by Nightmare. Install those through your compatible game setup; their binaries are not distributed in this repository.
+
 ## Install
 
 1. Close the game and CnCNet client.
@@ -17,6 +58,19 @@ In configured modes, deploy your MCV and build the Elite Combat Academy and play
 ## Nightmare adjustment
 
 The Nightmare option is patched directly because it overrides the earlier map-code anti-rush rules. The adjustment reduces AI economy bonuses, disables parallel AI production, limits active teams, and increases team creation intervals to 18,000 frames: about 10 minutes at 30 FPS or 5 minutes at 60 FPS.
+
+| Nightmare setting | Modified value |
+| --- | --- |
+| Global hunt, AI fire sale, team retaliation | Disabled |
+| Team creation interval | `TeamDelays=18000,18000,18000` |
+| Active team caps, Hard / Normal / Easy | `TotalAITeamCap=3,2,1` |
+| AI income multiplier | `MultiplayerAICM=1,1,1` |
+| Virtual ore purifiers | `AIVirtualPurifiers=0,0,0` |
+| AI Slave Miner number setting | `AISlaveMinerNumber=1,1,1` |
+| Target bias | `BaseBias=0`, `EnemyHouseThreatBonus=0.0` |
+| Supplementary attack/autocreate settings | `AttackDelay=10.0`, `AttackInterval=10.0`, `AutocreateTime=10.0` |
+| Parallel production | Disabled for infantry, vehicles, navy, aircraft, and buildings |
+| AI structure build delay | `BuildDelay=1.0` in all three difficulty sections |
 
 This is not a guaranteed ceasefire. Map scripts and existing units can still cause combat. INI parsing and the configuration differences were checked; in-game timing still needs testing. Global instant build also benefits AI production. Client updates may overwrite these customizations.
 
