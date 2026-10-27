@@ -1,3 +1,24 @@
+# Current update: restore AI attack activity (2026-10-27)
+
+The player reported that opponents appeared not to attack after the first anti-rush adjustment. The generated `spawnmap.ini` confirmed the 18,000-frame team interval and 3/2/1 team caps were applied. Those settings, the 10-minute autocreate interval, and long structure delays were too restrictive for the intended play experience.
+
+Rebalanced Nightmare and all ten customized map-code files:
+
+- `TeamDelays=5400,5400,5400`: about 3 minutes at 30 FPS or 90 seconds at 60 FPS between team creation checks, rather than 10 or 5 minutes. Actual attacks also depend on team assembly and travel.
+- `TotalAITeamCap=12,8,5`: room for more teams on Hard/Normal/Easy.
+- `AutocreateTime=2.0` and `BuildDelay=0.1`; Nightmare's three difficulty build-delay values are also `0.1`.
+- `TeamRetaliate=yes`: teams may retaliate again.
+- Nightmare supplementary `AttackDelay=3.0` and `AttackInterval=3.0`.
+- Retained `AIAllToHunt=no`, zero starting-unit recommendation, reduced income bonuses, and disabled parallel production.
+
+Configuration parsing passed for all eleven edited INI files. In-game attack activity still needs validation in a NEW skirmish after restarting the client; existing saves retain their prior rules. Instant build, academy, and reactor definitions were left unchanged.
+
+Pre-rebalance INI copies: `doc/backups/ai-activity-rebalance-20261027-223018/`, preserving their paths under `INI/`.
+
+The older reports below describe previous settings and are superseded by this update.
+
+---
+
 # Current update: Nightmare anti-rush fix (2026-10-27)
 
 The latest `spawnmap.ini` showed that Nightmare's option file was applied after the map code and overwrote the earlier anti-rush rules. Actual generated values were `AIAllToHunt=true`, `TeamDelays=200,200,200`, `MultiplayerAICM=4800,4800,4800`, `TotalAITeamCap=100,100,100`, and `AllowParallelAIQueues=yes`. Starting Units was already 0 (`cmbStartingUnits=10`, `spawn.ini` has `UnitCount=0`), so starting tanks were not the cause in this match.

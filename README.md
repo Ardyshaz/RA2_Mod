@@ -14,7 +14,7 @@ Requires a separately installed compatible copy of Yuri's Revenge with CnCNet, A
 | Elite training | The academy sets infantry, vehicle, aircraft, and building academy veterancy to `2.0`, intended to give eligible newly produced units Elite rank (three chevrons). Build the academy before producing your army. |
 | Player Nuclear Reactor | Adds free `PLAYERNRCT`, available after deploying a construction yard, with **+2000 power**, no tech-center requirement, and `AIBuildThis=no`. It also satisfies the power prerequisite for further construction. |
 | Original reactor restriction | Sets the standard Soviet `NANRCT` to `TechLevel=-1` and `AIBuildThis=no`; the custom reactor is the player's replacement. |
-| Baseline anti-rush rules | The ten customized map-code files set slower team creation, reduced AI economy bonuses, smaller team caps, no global hunt/fire-sale/team retaliation, and no parallel AI unit queues. Some settings are overridden by the selected AI modifier. |
+| Baseline anti-rush rules | The ten customized map-code files set slower team creation, reduced AI economy bonuses, smaller team caps, no global hunt/fire-sale, restored team retaliation, and no parallel AI unit queues. Some settings are overridden by the selected AI modifier. |
 | Nightmare AI anti-rush patch | Directly adjusts RAZER's Nightmare AI to preserve slower team creation and reduced economic bonuses when Nightmare is selected. Details appear below. |
 | AI academy suppression attempt | Map code sets academy bonuses on `RAZER-GAOREP`, `RAZER-NAINDP`, and `RAZER-NACLON` to zero. However, the later Nightmare option defines them as `1`, so AI starting at recruit rank is **not guaranteed** with Nightmare selected. |
 
@@ -57,20 +57,21 @@ In configured modes, deploy your MCV and build the Elite Combat Academy and play
 
 ## Nightmare adjustment
 
-The Nightmare option is patched directly because it overrides the earlier map-code anti-rush rules. The adjustment reduces AI economy bonuses, disables parallel AI production, limits active teams, and increases team creation intervals to 18,000 frames: about 10 minutes at 30 FPS or 5 minutes at 60 FPS.
+The Nightmare option is patched directly because it overrides the earlier map-code anti-rush rules. The adjustment reduces AI economy bonuses, disables parallel AI production, limits active teams, and sets team creation intervals to 5,400 frames: about 3 minutes at 30 FPS or 90 seconds at 60 FPS. The previous 18,000-frame interval and three-team cap were too restrictive in play, so the cap is now 12 / 8 / 5 teams and AI structure delays are shorter. This interval also applies between later team creation checks; it is not a separate opening-only timer.
 
 | Nightmare setting | Modified value |
 | --- | --- |
-| Global hunt, AI fire sale, team retaliation | Disabled |
-| Team creation interval | `TeamDelays=18000,18000,18000` |
-| Active team caps, Hard / Normal / Easy | `TotalAITeamCap=3,2,1` |
+| Global hunt and AI fire sale | Disabled |
+| Team retaliation | Enabled |
+| Team creation interval | `TeamDelays=5400,5400,5400` |
+| Active team caps, Hard / Normal / Easy | `TotalAITeamCap=12,8,5` |
 | AI income multiplier | `MultiplayerAICM=1,1,1` |
 | Virtual ore purifiers | `AIVirtualPurifiers=0,0,0` |
 | AI Slave Miner number setting | `AISlaveMinerNumber=1,1,1` |
 | Target bias | `BaseBias=0`, `EnemyHouseThreatBonus=0.0` |
-| Supplementary attack/autocreate settings | `AttackDelay=10.0`, `AttackInterval=10.0`, `AutocreateTime=10.0` |
+| Supplementary attack/autocreate settings | `AttackDelay=3.0`, `AttackInterval=3.0`, `AutocreateTime=2.0` |
 | Parallel production | Disabled for infantry, vehicles, navy, aircraft, and buildings |
-| AI structure build delay | `BuildDelay=1.0` in all three difficulty sections |
+| AI structure build delay | `BuildDelay=0.1` in all three difficulty sections |
 
 This is not a guaranteed ceasefire. Map scripts and existing units can still cause combat. INI parsing and the configuration differences were checked; in-game timing still needs testing. Global instant build also benefits AI production. Client updates may overwrite these customizations.
 
