@@ -1,3 +1,22 @@
+# Current update: Player-Exclusive Unlimited Money & 90% Price Discount (2026-10-27)
+
+The player requested unlimited money and reduced construction prices exclusively for the human player, while keeping all AI opponents at normal economic rules.
+
+### Features Applied to [PLAYERACAD] and [PLAYERNRCT] across All 10 Skirmish Modes:
+1. **Instant Unlimited Cash:**
+   - ProduceCashStartup=1000000: Immediately grants **$1,000,000 credits** the moment either the Nuclear Reactor or Academy is placed.
+   - ProduceCashAmount=50000 & ProduceCashDelay=60: Generates a continuous **+$50,000 credits every second** (60 frames at 60 FPS), guaranteeing your cash reserves never run dry.
+   - ProduceCashDisplay=no: Keeps the UI clean without floating green dollar spam.
+2. **90% Price Discount on All Construction:**
+   - FactoryPlant=yes
+   - FactoryPlant.Multiplier=0.1
+   - InfantryCostBonus=0.1, UnitsCostBonus=0.1, AircraftCostBonus=0.1, BuildingsCostBonus=0.1, DefensesCostBonus=0.1
+   - All units, tanks, aircraft, buildings, and defenses cost only 10% of their standard price (e.g., $1000 tank costs $100).
+3. **100% Exclusive to the Human Player:**
+   - Both buildings have AIBuildThis=no.
+   - All AI opponents produce units at normal prices and rely strictly on standard ore harvesting/mechanics.
+
+---
 # Current update: 60 FPS 3v1 Defense Grace Period with AIHateDelays (2026-10-27)
 
 The player reported that when playing 3 vs 1 at 60 FPS, the enemy attacked too fast before base defenses could be completed.

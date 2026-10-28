@@ -11,6 +11,7 @@ Requires a separately installed compatible copy of Yuri's Revenge with CnCNet, A
 - **Allied nuclear reactor:** Allies can build a free nuclear reactor immediately after deploying their MCV; also available to Soviet and Yuri factions.
 - **+2000 power:** The custom reactor supplies a large amount of power and unlocks power-dependent construction.
 - **Free player buildings:** The academy and custom reactor cost $0 and are configured to prevent AI construction.
+- **Unlimited money & 90% price discount (Player-only):** Custom buildings grant instant +$1,000,000 cash, +$50,000/sec continuous income, and a 90% price discount on all units, tanks, aircraft, and defenses for the human player only. AI opponents pay normal prices.
 - **Larger build queues:** Queue up to 99 items.
 - **2.5-minute defense grace period:** AttackDelay=2.5 prevents AI attack waves for the first 4.5 minutes (at 60 FPS), giving you complete peace to construct bases, layered defenses, and 3-chevron armies.
 - **Relentless Nightmare swarms:** After the grace period, rapid attack intervals (TeamDelays=200, ~6.6s) and maximum team capacity (TotalAITeamCap=100) unleash continuous, massive assaults against your defenses.
