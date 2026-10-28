@@ -1,3 +1,24 @@
+# Current update: Nightmare Swarms Restored with 2.5-Minute Defense Grace Period (2026-10-27)
+
+The player requested that Nightmare AI attack with its full, brutal, overwhelming swarming power, but with an initial delay so the player can completely build up their base and defenses first without being rushed.
+
+### Changes Applied to `Extreme AI Beta.ini` and All 10 Skirmish Map Modes:
+1. **2.5-Minute Opening Grace Period:**
+   - `AttackDelay=2.5`: The AI will not dispatch attack teams during the first 2.5 minutes. With instant build (~0.06s), the player has ample time to deploy the MCV, build the Nuclear Reactor (+2000 power), Elite Academy, War Factory, and erect layered base defenses (Prism Towers, Grand Cannons, Tesla Coils, Bunkers, and walls).
+   - `AIAllToHunt=no`: Prevents early frame-0 suicide rush charges.
+2. **Relentless Swarms After Grace Period Ends:**
+   - `TeamDelays=200,200,200`: Once attacks begin, a new attack wave is launched every 200 frames (~6.6 seconds), creating non-stop, continuous assaults.
+   - `TotalAITeamCap=100,100,100`: Maximum squad cap restored to 100 teams simultaneously on the field.
+   - `MultiplayerAICM=4800,4800,4800`: 4800x income multiplier restored so Nightmare AI has endless funding to pump out Apocalypse tanks, Kirovs, Prism tanks, Dreadnoughts, and swarms.
+   - `AIVirtualPurifiers=50,50,50` & `AISlaveMinerNumber=2,2,2`: Full resource generation.
+   - `AllowParallelAIQueues=yes` (`ForbidParallelAIQueues.*=no`): AI parallel production enabled across infantry, vehicles, aircraft, and navy.
+   - `WarLimit=4` & `DefenseLimit=40`: AI builds multiple war factories and heavily defends its own perimeter.
+   - `AutocreateTime=0.5`: Reinforcement squads created every 30 seconds.
+   - `BaseBias=20` & `EnemyHouseThreatBonus=50.0`: High aggression directed at the player's base.
+   - `TeamRetaliate=yes`: AI aggressively fights back if fired upon.
+
+---
+
 # Current update: restore AI attack activity (2026-10-27)
 
 The player reported that opponents appeared not to attack after the first anti-rush adjustment. The generated `spawnmap.ini` confirmed the 18,000-frame team interval and 3/2/1 team caps were applied. Those settings, the 10-minute autocreate interval, and long structure delays were too restrictive for the intended play experience.
