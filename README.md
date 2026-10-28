@@ -12,10 +12,10 @@ Requires a separately installed compatible copy of Yuri's Revenge with CnCNet, A
 - **+2000 power:** The custom reactor supplies a large amount of power and unlocks power-dependent construction.
 - **Free player buildings:** The academy and custom reactor cost $0 and are configured to prevent AI construction.
 - **Larger build queues:** Queue up to 99 items.
-- **Slower Nightmare AI:** Longer team creation intervals give you more time to prepare; about 3 minutes per check at 30 FPS, with actual attack timing varying.
-- **Active enemy attacks:** Increased team caps, faster AI base building, and restored retaliation compared with the earlier overly passive settings.
-- **Reduced AI economy bonuses:** Removes the original Nightmare 4800 income multiplier and virtual purifier bonuses.
-- **No parallel AI production:** Prevents simultaneous AI production queues within each production category.
+- **2.5-minute defense grace period:** AttackDelay=2.5 prevents AI attack waves for the first 2.5 minutes, giving you complete peace to construct bases, layered defenses, and 3-chevron armies.
+- **Relentless Nightmare swarms:** After the grace period, rapid attack intervals (TeamDelays=200, ~6.6s) and maximum team capacity (TotalAITeamCap=100) unleash continuous, massive assaults against your defenses.
+- **Endless AI funding:** Restores the 4800x income multiplier and virtual purifiers so the AI continuously pumps out high-tier heavy armor and swarms.
+- **Parallel AI production:** AI builds units simultaneously across multiple factories.
 - **All factions configured:** Academy and custom reactor ownership includes all ten countries.
 - **Ten customized game modes:** Shared changes cover Battle/Standard, Cooperative, Free For All, Land Rush, Meat Grinder, Megawealth, Naval War, Survival, Team Alliance, and Unholy Alliance.
 
@@ -73,20 +73,20 @@ In configured modes, deploy your MCV and build the Elite Combat Academy and play
 ## Nightmare adjustment
 
 The Nightmare option is patched directly because it overrides the earlier map-code anti-rush rules. The adjustment reduces AI economy bonuses, disables parallel AI production, limits active teams, and sets team creation intervals to 5,400 frames: about 3 minutes at 30 FPS or 90 seconds at 60 FPS. The previous 18,000-frame interval and three-team cap were too restrictive in play, so the cap is now 12 / 8 / 5 teams and AI structure delays are shorter. This interval also applies between later team creation checks; it is not a separate opening-only timer.
-
 | Nightmare setting | Modified value |
 | --- | --- |
-| Global hunt and AI fire sale | Disabled |
-| Team retaliation | Enabled |
-| Team creation interval | `TeamDelays=5400,5400,5400` |
-| Active team caps, Hard / Normal / Easy | `TotalAITeamCap=12,8,5` |
-| AI income multiplier | `MultiplayerAICM=1,1,1` |
-| Virtual ore purifiers | `AIVirtualPurifiers=0,0,0` |
-| AI Slave Miner number setting | `AISlaveMinerNumber=1,1,1` |
-| Target bias | `BaseBias=0`, `EnemyHouseThreatBonus=0.0` |
-| Supplementary attack/autocreate settings | `AttackDelay=3.0`, `AttackInterval=3.0`, `AutocreateTime=2.0` |
-| Parallel production | Disabled for infantry, vehicles, navy, aircraft, and buildings |
-| AI structure build delay | `BuildDelay=0.1` in all three difficulty sections |
+| Opening grace period | `AttackDelay=2.5` (2.5-minute delay before attack waves) |
+| Global hunt and AI fire sale | Disabled (`AIAllToHunt=no`, prevents frame-0 rush) |
+| Team retaliation | Enabled (`TeamRetaliate=yes`) |
+| Team creation interval | `TeamDelays=200,200,200` (~6.6s rapid attack wave frequency) |
+| Active team caps, Hard / Normal / Easy | `TotalAITeamCap=100,100,100` (up to 100 squads swarming) |
+| AI income multiplier | `MultiplayerAICM=4800,4800,4800` (unlimited AI funds) |
+| Virtual ore purifiers | `AIVirtualPurifiers=50,50,50` |
+| AI Slave Miner number setting | `AISlaveMinerNumber=2,2,2` |
+| Target bias | `BaseBias=20`, `EnemyHouseThreatBonus=50.0` |
+| Supplementary attack/autocreate settings | `AttackInterval=0.1`, `AutocreateTime=0.5` |
+| Parallel production | Enabled for infantry, vehicles, navy, aircraft, and buildings |
+| AI structure build delay | `BuildDelay=0.01` in all difficulty sections |
 
 This is not a guaranteed ceasefire. Map scripts and existing units can still cause combat. INI parsing and the configuration differences were checked; in-game timing still needs testing. Global instant build also benefits AI production. Client updates may overwrite these customizations.
 
