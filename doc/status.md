@@ -1,3 +1,45 @@
+﻿# Current update: Universal Technology Unlock (All Tabs Unlocked) & Instant Full Map Reveal (2026-10-28)
+
+The player requested the ultimate God Mode:
+1. **Universal Technology Unlock across All Tabs:** Regardless of country chosen (Allied, Soviet, or Yuri), all technology, buildings, defenses, superweapons, vehicles, and infantry from all countries are 100% unlocked.
+2. **Instant Full Map Reveal:** Opening the game immediately eliminates all fog of war and black shroud across the entire map.
+3. **Player-Exclusive Restrictions:** AI cannot build player superweapons, cross-faction defenses, or exploit player cheats.
+
+### Mechanics Applied across All 10 Skirmish Modes:
+1. **Instant Full Map Reveal (SpySat=yes & Radar=yes):**
+   - Configured `SpySat=yes` and `Radar=yes` on all Construction Yards (`GACNST`, `NACNST`, `YACNST`), as well as `[PLAYERACAD]` and `[PLAYERNRCT]`.
+   - The second the player's MCV deploys into a ConYard at frame 0, the black shroud and fog of war are permanently removed, and radar vision is immediately activated for the entire match.
+2. **All-in-One Infantry Tab (Any 1 Barracks Unlocks All):**
+   - Built via `Prerequisite=GAPILE` with `Prerequisite.List1=NAHAND` and `Prerequisite.List2=YABRCK`.
+   - **Unlimited Hero Armies:** `BuildLimit=-1` set on Tanya (`TANY`), Boris (`BORIS`), and Yuri Prime (`YURIPR`). The player can train multiple heroes to swarm enemy bases.
+   - **Country-Unique & Special Forces:** British Sniper, Iraqi Desolator, Cuban Terrorist, Chrono Legionnaire, Navy SEAL, Spy, Rocketeer, Tesla Trooper, Flak Trooper, Yuri Initiate, Brute, Virus, Yuri Clone.
+   - **Secret Stolen Tech Infantry:** Psi-Commando (`PTROOP`), Chrono Ivan (`CIVAN`), and Chrono Commando (`CCOMAND`) are unlocked directly without needing Spy infiltration.
+3. **All-in-One Vehicle & Aircraft Tab (Any 1 War Factory Unlocks All):**
+   - Built via `Prerequisite=GAWEAP` with `Prerequisite.List1=NAWEAP` and `Prerequisite.List2=YAWEAP`.
+   - **Allied Heavy Armor & Air:** Prism Tank, Mirage Tank, Battle Fortress, Tank Destroyer, Robot Tank (with `PoweredUnit=no` to prevent offline shutdown), Harrier, Black Eagle, Nighthawk Transport.
+   - **Soviet Heavy Armor & Air:** Apocalypse Tank, Kirov Airship, Siege Chopper, V3 Rocket Launcher, Tesla Tank, Demolition Truck, Terror Drone.
+   - **Yuri Units:** Magnetron, Master Mind, Floating Disc, Gattling Tank, Chaos Drone, Lasher Tank, Slave Miner.
+4. **All-in-One Naval Tab (Any Naval Yard Unlocks All):**
+   - Built via `Prerequisite=GAYARD` with `Prerequisite.List1=NAYARD` and `Prerequisite.List2=YAYARD`.
+   - Unlocks Boomer Submarine, Giant Squid, Aircraft Carrier, Dreadnought, and Aegis Cruiser.
+5. **All 6 Superweapons Unlocked from ConYard:**
+   - Allied Chronosphere (`GACSPH`) & Weather Controller (`GAWEAT`).
+   - Soviet Nuclear Missile Silo (`NAMISL`) & Iron Curtain (`NAIRON`).
+   - Yuri Psychic Dominator (`YAPPET`) & Genetic Mutator (`YAGNTC`).
+   - All have `TechLevel=1`, `Prerequisite=GACNST`, `List1=NACNST`, `List2=YACNST`, and `AIBuildThis=no` to keep them strictly player-exclusive.
+6. **All Special Support Buildings Unlocked from ConYard:**
+   - Yuri / Soviet Cloning Vats (`NACLON`) - duplicates every trained infantry unit for free.
+   - Soviet Industrial Plant (`NAINDP`) - slashes vehicle costs and production time.
+   - Allied Ore Purifier (`GAOREP`) - multiplies ore processing credits.
+   - Yuri Grinder (`YAGRND`) - recycle units for cash.
+   - Allied Robot Control Center (`GAROBO`).
+7. **All Base Defenses Available for All Factions:**
+   - French Grand Cannon, Prism Tower, Tesla Coil, Psychic Tower, Gatling Cannon, Patriot Missile AA, Flak Cannon AA, Sentry Gun, Pillbox, Battle Bunker, and Tank Bunker.
+8. **Strict Player Exclusivity (`AIBuildThis=no`):**
+   - All superweapons, cross-faction defenses, support structures, and hero units are protected by `AIBuildThis=no`.
+   - Standard AI engines only produce units scripted in their native `TaskForces`, ensuring opponent bots do not access cross-faction technology.
+
+---
 # Current update: Auto-Elite (3 Chevrons) for Grand Cannon, Anti-Air & Base Defenses (2026-10-27)
 
 The player requested that French Grand Cannons, Anti-Air defenses (Patriot, Flak Cannon, Gatling), and primary defenses start as **Auto-Elite (3 Chevrons)** immediately upon construction.
@@ -170,7 +212,7 @@ Applied directly into all Skirmish Map Code files to override any aggressive AI 
 - **`AIAllToHunt=no`:** Strips the global hunt command. AI units will defend their own territory instead of charging at game start.
 - **`TeamDelays=10000,10000,10000`:** Sets a **5.5-minute delay** (10,000 frames at 30 fps) before the AI is allowed to organize and dispatch its first attack wave, giving the player complete peace to build.
 - **`MultiplayerAICM=1,1,1`:** Strips the AI's 4800x income multiplier cheat down to 1, restricting the AI to normal ore harvesting.
-- **`TotalAITeamCap=3,2,1`:** Caps the AI to a maximum of 1–3 active squads.
+- **`TotalAITeamCap=3,2,1`:** Caps the AI to a maximum of 1â€“3 active squads.
 - **`BuildDelay=1.0` & `AutocreateTime=10.0`:** AI pauses 1 minute between building structures and 10 minutes between autocreating units.
 - **`EnemyHouseThreatBonus=0.0` & `BaseBias=0`:** Removes hyper-focus bias against the human player.
 - **`AllowParallelAIQueues=no`:** Prohibits the AI from queueing multiple vehicles/infantry simultaneously.
@@ -190,7 +232,7 @@ Applied directly into all Skirmish Map Code files to override any aggressive AI 
 ### D. Player-Exclusive Nuclear Reactor (`[PLAYERNRCT]`)
 - **Huge Power Generation:** `Power=2000` (provides massive power, eliminating the need to clutter your base with multiple power plants).
 - **Allied Access:** Explicitly enabled for Allied countries (`British,French,Germans,Americans,Alliance`) as well as Soviet and Yuri countries.
-- **Immediate Placement:** `Prerequisite=GACNST`, `Prerequisite.List1=NACNST`, `Prerequisite.List2=YACNST`, and `TechLevel=1` — appears on Tab 1 right as your MCV unfolds.
+- **Immediate Placement:** `Prerequisite=GACNST`, `Prerequisite.List1=NACNST`, `Prerequisite.List2=YACNST`, and `TechLevel=1` â€” appears on Tab 1 right as your MCV unfolds.
 - **Power Prerequisite Fulfillment:** Added to `PrerequisitePower` so placing it satisfies the power requirement to unlock Barracks and other tech immediately.
 - **Cost:** `$0` (free, instant build ~0.06s).
 - **Strictly AI-Blocked:** Both `[PLAYERNRCT]` and vanilla `[NANRCT]` have `AIBuildThis=no` and `TechLevel=-1` for vanilla, ensuring AI opponents (Allied, Soviet, or Yuri) never build Nuclear Reactors.
@@ -240,3 +282,4 @@ Get-ChildItem -Filter "*.original_backup" | ForEach-Object {
     Remove-Item $_.FullName
 }
 ```
+
