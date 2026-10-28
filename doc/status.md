@@ -1,3 +1,21 @@
+# Current update: Auto-Elite (3 Chevrons) for Grand Cannon, Anti-Air & Base Defenses (2026-10-27)
+
+The player requested that French Grand Cannons, Anti-Air defenses (Patriot, Flak Cannon, Gatling), and primary defenses start as **Auto-Elite (3 Chevrons)** immediately upon construction.
+
+### Mechanics Applied across All 10 Skirmish Modes:
+1. **Defensive Structures Marked Trainable=yes:**
+   - Configured Trainable=yes, VeteranAbilities, and EliteAbilities on:
+     - **French Grand Cannon (GTGCAN):** Uses high-explosive GrandCannonWeaponE with faster firing rate and longer range.
+     - **Allied Patriot Missile AA (NASAM):** Uses hyper-velocity RedEye2E AA missiles.
+     - **Soviet Flak Cannon AA (NAFLAK):** Uses lethal heavy FlakCannonWeaponE flak burst.
+     - **Yuri Gatling Cannon (YAGGUN):** Shreds air and ground with elite ROF and firepower.
+     - **Allied Prism Tower (ATESLA):** High-power PrismShotE red prism laser.
+     - **Soviet Tesla Coil (TESLA):** Supercharged CoilBoltE red lightning bolt.
+2. **Double Academy Coverage on Both Custom Buildings:**
+   - Both PLAYERACAD and PLAYERNRCT are configured with Academy.BuildingVeterancy=2.0.
+   - The instant you place either the Nuclear Reactor or the Academy, any defense built immediately spawns with **3 Golden Chevrons (Elite Rank)**, self-healing, faster firing, and increased firepower!
+
+---
 # Current update: Soviet & All-Faction French Grand Cannon, Prism Tank & Rocketeer (2026-10-27)
 
 The player requested that when playing as Soviet (or any faction), they can also build:
