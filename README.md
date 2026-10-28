@@ -9,7 +9,7 @@ Requires a separately installed compatible copy of Yuri's Revenge with CnCNet, A
 - **Instant build:** Very fast construction of buildings, infantry, vehicles, aircraft, and ships. Also benefits AI.
 - **Elite rank (3 chevrons):** Build the free Elite Combat Academy to give eligible newly produced units Elite rank.
 - **Allied nuclear reactor:** Allies can build a free nuclear reactor immediately after deploying their MCV; also available to Soviet and Yuri factions.
-- **+2000 power:** The custom reactor supplies a large amount of power and unlocks power-dependent construction.
+- **+100,000 power:** The custom reactor supplies a large amount of power and unlocks power-dependent construction.
 - **Free player buildings:** The academy and custom reactor cost $0 and are configured to prevent AI construction.
 - **Unlimited money & 90% price discount (Player-only):** Custom buildings grant instant +$1,000,000 cash, +$50,000/sec continuous income, and a 90% price discount on all units, tanks, aircraft, and defenses for the human player only. AI opponents pay normal prices.
 - **Larger build queues:** Queue up to 99 items.
@@ -28,7 +28,7 @@ Requires a separately installed compatible copy of Yuri's Revenge with CnCNet, A
 | Larger production queues | Sets `MaximumQueuedObjects=99`. |
 | Elite Combat Academy | Adds the free `PLAYERACAD` building, available after deploying an Allied, Soviet, or Yuri construction yard. Uses the hospital image, requires no power, has a build limit of one, and is configured with `AIBuildThis=no`. |
 | Elite training | The academy sets infantry, vehicle, aircraft, and building academy veterancy to `2.0`, intended to give eligible newly produced units Elite rank (three chevrons). Build the academy before producing your army. |
-| Player Nuclear Reactor | Adds free `PLAYERNRCT`, available after deploying a construction yard, with **+2000 power**, no tech-center requirement, and `AIBuildThis=no`. It also satisfies the power prerequisite for further construction. |
+| Player Nuclear Reactor | Adds free `PLAYERNRCT`, available after deploying a construction yard, with **+100,000 power**, no tech-center requirement, and `AIBuildThis=no`. It also satisfies the power prerequisite for further construction. |
 | Player unlimited money & 90% discount | Custom buildings grant `ProduceCashStartup=1000000`, continuous `ProduceCashAmount=50000`/sec, and `FactoryPlant.Multiplier=0.1` (90% discount) exclusively for the player. AI pays normal prices. |
 | Original reactor restriction | Sets the standard Soviet `NANRCT` to `TechLevel=-1` and `AIBuildThis=no`; the custom reactor is the player's replacement. |
 | Baseline anti-rush rules | The ten customized map-code files set slower team creation, reduced AI economy bonuses, smaller team caps, no global hunt/fire-sale, restored team retaliation, and no parallel AI unit queues. Some settings are overridden by the selected AI modifier. |
@@ -70,7 +70,7 @@ This mod uses **Nightmare AI V1.0.0 by RAZER**, with its existing custom task fo
 4. Reopen CnCNet, select **Nightmare AI (Beta)**, and set **Starting Units** to **0**.
 5. Start a **new skirmish**. Existing saved games retain their old rules.
 
-In configured modes, deploy your MCV and build the Elite Combat Academy and player Nuclear Reactor from the building tab. Both cost $0; the reactor supplies 2000 power.
+In configured modes, deploy your MCV and build the Elite Combat Academy and player Nuclear Reactor from the building tab. Both cost $0; the reactor supplies 100,000 power (enough for endless Grand Cannons and Prism Towers).
 
 ## Nightmare adjustment
 

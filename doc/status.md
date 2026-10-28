@@ -38,7 +38,7 @@ The player requested that Nightmare AI attack with its full, brutal, overwhelmin
 
 ### Changes Applied to `Extreme AI Beta.ini` and All 10 Skirmish Map Modes:
 1. **2.5-Minute Opening Grace Period:**
-   - `AttackDelay=2.5`: The AI will not dispatch attack teams during the first 2.5 minutes. With instant build (~0.06s), the player has ample time to deploy the MCV, build the Nuclear Reactor (+2000 power), Elite Academy, War Factory, and erect layered base defenses (Prism Towers, Grand Cannons, Tesla Coils, Bunkers, and walls).
+   - `AttackDelay=2.5`: The AI will not dispatch attack teams during the first 2.5 minutes. With instant build (~0.06s), the player has ample time to deploy the MCV, build the Nuclear Reactor (+100,000 power), Elite Academy, War Factory, and erect layered base defenses (Prism Towers, Grand Cannons, Tesla Coils, Bunkers, and walls).
    - `AIAllToHunt=no`: Prevents early frame-0 suicide rush charges.
 2. **Relentless Swarms After Grace Period Ends:**
    - `TeamDelays=200,200,200`: Once attacks begin, a new attack wave is launched every 200 frames (~6.6 seconds), creating non-stop, continuous assaults.
@@ -104,7 +104,7 @@ The following is the historical implementation report. Its claims of guaranteed 
 1. **Instant Build for Player (~0.06s):** All buildings, infantry, tanks, aircraft, and ships construct in a fraction of a second without waiting.
 2. **Eliminate Early AI Rushes & Aggression:** Prevent AI opponents from attacking before the player has constructed their base and defenses.
 3. **Player-Exclusive Elite Units (3 Chevrons):** All newly produced units for the human player start at Elite rank (3 chevrons / level 2.0) via the instant $0 Academy, while AI opponents produce standard recruits (0 chevrons).
-4. **Player-Exclusive Huge Nuclear Reactor (+2000 Power):** Available for Allied (and all factions) immediately upon MCV deployment for $0, while strictly blocked from AI opponents.
+4. **Player-Exclusive Huge Nuclear Reactor (+100,000 Power):** Available for Allied (and all factions) immediately upon MCV deployment for $0, while strictly blocked from AI opponents.
 5. **Universal Coverage:** Fully operational across all 10 playable countries, on all maps, and across all Skirmish game modes.
 
 ---
@@ -182,7 +182,7 @@ The configuration is embedded in every Skirmish Map Code file in `INI\Map Code`:
 For the best, most relaxed building experience:
 1. **Starting Units:** In the lobby dropdown, set **Starting Units** to **0** (so neither you nor the AI start with free attack tanks).
 2. **AI Modifier:** Set **AI Modifier** to **Vanilla AI** (or Easy AI).
-3. **Deploy MCV:** Place the **Elite Combat Academy** ($0, instant) and the **Nuclear Reactor** ($0, instant, +2000 power) from your Building tab (Tab 1).
+3. **Deploy MCV:** Place the **Elite Combat Academy** ($0, instant) and the **Nuclear Reactor** ($0, instant, +100,000 power) from your Building tab (Tab 1).
 4. **Enjoy:** You have instant build (~0.06s), infinite power with Nuclear Reactor on Allied, all your units are 3-chevron Elite, and the AI will remain calm and slow.
 
 ---
