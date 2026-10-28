@@ -1,3 +1,25 @@
+# Current update: Soviet & All-Faction French Grand Cannon, Prism Tank & Rocketeer (2026-10-27)
+
+The player requested that when playing as Soviet (or any faction), they can also build:
+1. French Grand Cannon (GTGCAN)
+2. Prism Tank (SREF)
+3. Rocketeer (JUMPJET)
+
+### Configuration Applied across All 10 Skirmish Modes:
+- **French Grand Cannon (GTGCAN):**
+  - Owner & RequiredHouses set to all 10 nations.
+  - Prerequisite=GACNST, List1=NACNST, List2=YACNST with TechLevel=1. Available on Tab 2 immediately upon deploying an Allied, Soviet, or Yuri MCV.
+  - AIBuildThis=no keeps it player-exclusive.
+- **Prism Tank (SREF):**
+  - Owner & RequiredHouses set to all 10 nations.
+  - Prerequisite=GAWEAP, List1=NAWEAP, List2=YAWEAP with TechLevel=1. Unlocks on Vehicle Tab immediately upon building an Allied, Soviet, or Yuri War Factory.
+  - Benefits from PLAYERACAD for instant 3-chevron Elite status (red split-lasers) and 90% discount.
+- **Rocketeer (JUMPJET):**
+  - Owner & RequiredHouses set to all 10 nations.
+  - Prerequisite=GAPILE, List1=NAHAND, List2=YABRCK with TechLevel=1. Unlocks on Infantry Tab immediately upon building an Allied, Soviet, or Yuri Barracks.
+  - Benefits from PLAYERACAD for instant 3-chevron Elite status and 90% discount.
+
+---
 # Current update: Player-Exclusive Unlimited Money & 90% Price Discount (2026-10-27)
 
 The player requested unlimited money and reduced construction prices exclusively for the human player, while keeping all AI opponents at normal economic rules.
