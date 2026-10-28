@@ -1,3 +1,18 @@
+# Current update: 60 FPS 3v1 Defense Grace Period with AIHateDelays (2026-10-27)
+
+The player reported that when playing 3 vs 1 at 60 FPS, the enemy attacked too fast before base defenses could be completed.
+
+### Root Cause Analysis for 60 FPS & Multi-AI Attacks:
+1. **60 FPS Frame Rate Doubling:** At 60 FPS, the game simulation processes twice as fast as standard 30 FPS.
+2. **AttackDelay is Deprecated in RA2/YR:** In standard Westwood engine logic, AttackDelay is largely deprecated and ignored in multiplayer/skirmish.
+3. **The True Skirmish Delay Flag is AIHateDelays:** ModEnc documentation confirms that AIHateDelays (in frames) governs the exact interval before an AI selects and targets an enemy. In Nightmare AI, AIHateDelays=0,0,0 was hardcoded, causing all 3 AIs to pick the human player as enemy immediately on frame 0.
+
+### Solution Applied:
+- **AIHateDelays=16200,16200,16200 (under [General]):** Sets a **4.5-minute delay** (16,200 frames at 60 FPS, or 9 minutes at 30 FPS) before any AI selects the player as an enemy. Prior to this, the 3 AIs strictly build up their own bases and defenses.
+- **AttackDelay=4.5 (under [AI]):** Synchronized with the 4.5-minute grace period.
+- **Full Nightmare Swarm Retained:** Once the 4.5 minutes pass, all 3 AIs switch to full attack with rapid TeamDelays=200, TotalAITeamCap=100, parallel factory production, and 4800x income cheats, swarming your completed defense system!
+
+---
 # Current update: Nightmare Swarms Restored with 2.5-Minute Defense Grace Period (2026-10-27)
 
 The player requested that Nightmare AI attack with its full, brutal, overwhelming swarming power, but with an initial delay so the player can completely build up their base and defenses first without being rushed.

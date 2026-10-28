@@ -12,7 +12,7 @@ Requires a separately installed compatible copy of Yuri's Revenge with CnCNet, A
 - **+2000 power:** The custom reactor supplies a large amount of power and unlocks power-dependent construction.
 - **Free player buildings:** The academy and custom reactor cost $0 and are configured to prevent AI construction.
 - **Larger build queues:** Queue up to 99 items.
-- **2.5-minute defense grace period:** AttackDelay=2.5 prevents AI attack waves for the first 2.5 minutes, giving you complete peace to construct bases, layered defenses, and 3-chevron armies.
+- **2.5-minute defense grace period:** AttackDelay=2.5 prevents AI attack waves for the first 4.5 minutes (at 60 FPS), giving you complete peace to construct bases, layered defenses, and 3-chevron armies.
 - **Relentless Nightmare swarms:** After the grace period, rapid attack intervals (TeamDelays=200, ~6.6s) and maximum team capacity (TotalAITeamCap=100) unleash continuous, massive assaults against your defenses.
 - **Endless AI funding:** Restores the 4800x income multiplier and virtual purifiers so the AI continuously pumps out high-tier heavy armor and swarms.
 - **Parallel AI production:** AI builds units simultaneously across multiple factories.
@@ -75,7 +75,7 @@ In configured modes, deploy your MCV and build the Elite Combat Academy and play
 The Nightmare option is patched directly because it overrides the earlier map-code anti-rush rules. The adjustment reduces AI economy bonuses, disables parallel AI production, limits active teams, and sets team creation intervals to 5,400 frames: about 3 minutes at 30 FPS or 90 seconds at 60 FPS. The previous 18,000-frame interval and three-team cap were too restrictive in play, so the cap is now 12 / 8 / 5 teams and AI structure delays are shorter. This interval also applies between later team creation checks; it is not a separate opening-only timer.
 | Nightmare setting | Modified value |
 | --- | --- |
-| Opening grace period | `AttackDelay=2.5` (2.5-minute delay before attack waves) |
+| Opening grace period | `AIHateDelays=16200,16200,16200` & `AttackDelay=4.5` (4.5-minute grace period at 60 FPS) |
 | Global hunt and AI fire sale | Disabled (`AIAllToHunt=no`, prevents frame-0 rush) |
 | Team retaliation | Enabled (`TeamRetaliate=yes`) |
 | Team creation interval | `TeamDelays=200,200,200` (~6.6s rapid attack wave frequency) |
