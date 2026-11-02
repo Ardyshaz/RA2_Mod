@@ -1,4 +1,29 @@
-﻿# Current update: Universal Technology Unlock (All Tabs Unlocked) & Instant Full Map Reveal (2026-10-28)
+# Current update: Survival Mode Wave 2 Crash Fix & Complete Defense Engine Stabilization (2026-11-02)
+
+The player reported a crash during Skirmish on Survival mode (`survive death r3` / `1_survive_death_r3_dctanxman.map`):
+- **Symptom:** Wave 1 (HIND helicopters) attack was defeated successfully. During Wave 2 (Brute & Yuri Master Mind attack), the game crashed with a fatal engine error.
+- **Root Cause Diagnosed:**
+  1. **Non-Existent Weapon Overrides on Defenses:** In `Survival.ini` (and other game mode INIs), custom elite weapon overrides were assigned to defenses:
+     - `[ATESLA]` had `ElitePrimary=PrismShotE` (`PrismShotE` was never defined in `Survival.ini` or base `rulesmd.ini`).
+     - `[TESLA]` had `ElitePrimary=CoilBoltE` (`CoilBoltE` was never defined).
+     - `[NAFLAK]` had `ElitePrimary=FlakCannonWeaponE`, which referenced `Warhead=FlakCannonWH` (an unregistered warhead in the base game).
+  2. **Wave 1 vs Wave 2 Firing Mechanics:**
+     - In Wave 1, only aerial units (HIND) attacked. Prism Towers, Tesla Coils, and Grand Cannons cannot target air, so they never fired.
+     - In Wave 2, ground units (Brutes and Master Minds) entered range. The instant an Elite Prism Tower, Tesla Coil, or Flak Cannon acquired a ground target and fired, the game attempted to dereference a NULL weapon/warhead pointer, triggering an immediate `EXCEPTION_ACCESS_VIOLATION` (0xc0000005) crash.
+  3. **Queue & Team Cap Overflow Protection:** `MaximumQueuedObjects=99` and `TotalAITeamCap=100` threatened engine limits when map trigger spawners fired in parallel with AI routines.
+- **Fixes Applied across All 10 Skirmish Modes:**
+  1. **Removed Broken Weapon References:** Deleted `ElitePrimary=PrismShotE`, `ElitePrimary=CoilBoltE`, `ElitePrimary=GrandCannonWeaponE`, `ElitePrimary=RedEye2E`, and `ElitePrimary=FlakCannonWeaponE`. Deleted the invalid custom weapon blocks.
+  2. **Crash-Proof Native Engine Weapons with Full Veterancy Boost:**
+     - Set `Trainable=yes` on all defenses (`GTGCAN`, `ATESLA`, `TESLA`, `GAPATR`, `NASAM`, `NAFLAK`, `NALASR`, `GAPILL`, `YAGGUN`, `NABNKR`, `NATBNK`).
+     - Configured `VeteranAbilities` and `EliteAbilities` (`FASTER,STRONGER,FIREPOWER,ROF,SELF_HEAL`).
+     - When `ElitePrimary` is omitted, the engine uses each structure's native, 100% bug-free `Primary` weapon with full Elite stat multipliers (+50% firepower, +50% fire rate, +50% health, auto-repair/self-heal, and proper beam/overpower support).
+  3. **Added Allied Patriot AA (`GAPATR`):** Added `[GAPATR]` with all-country ownership, ConYard prerequisite, and `Trainable=yes`.
+  4. **Stabilized Queue & Team Caps:** Tuned `MaximumQueuedObjects=30` and `TotalAITeamCap=60,60,60` to prevent memory array overflows during survival map trigger waves.
+  5. **Academy Safety:** Marked `[PLAYERACAD]` and `[PLAYERNRCT]` as `Trainable=yes` to maintain strict object type compliance under Ares `Academy.BuildingVeterancy=2.0`.
+  6. **Synced to All 10 Modes:** `Standard.ini`, `Survival.ini`, `Free For All.ini`, `Battle.ini`, `Meat Grinder.ini`, `Megawealth.ini`, `Naval War.ini`, `Team Alliance.ini`, `Unholy Alliance.ini`, `Land Rush.ini`, `Blitz_2v2.ini`, and `Cooperative.ini`.
+
+---
+# Current update: Universal Technology Unlock (All Tabs Unlocked) & Instant Full Map Reveal (2026-10-28)
 
 The player requested the ultimate God Mode:
 1. **Universal Technology Unlock across All Tabs:** Regardless of country chosen (Allied, Soviet, or Yuri), all technology, buildings, defenses, superweapons, vehicles, and infantry from all countries are 100% unlocked.
