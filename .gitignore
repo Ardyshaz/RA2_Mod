@@ -1,4 +1,4 @@
-# Publish only mod configuration and documentation.
+# Publish mod configuration, the customized Survival map, and documentation.
 /*
 !/.gitignore
 !/README.md
@@ -17,3 +17,13 @@
 /doc/*
 !/doc/status.md
 !/doc/backups/
+
+# Include the lobby settings and exact Survival map required by the fixes.
+!/INI/MPMaps.ini
+!/Maps/
+/Maps/*
+!/Maps/Yuri's Revenge/
+/Maps/Yuri's Revenge/*
+!/Maps/Yuri's Revenge/Survival/
+/Maps/Yuri's Revenge/Survival/*
+!/Maps/Yuri's Revenge/Survival/1_survive_death_r3_dctanxman.map

@@ -308,3 +308,31 @@ Get-ChildItem -Filter "*.original_backup" | ForEach-Object {
 }
 ```
 
+
+
+## 2026-11-02: Survival production delays and scripted opening waves
+
+Confirmed last-match settings: Survival / [1] Survive Death R3; Starting Units=0; Vanilla AI. The generated spawnmap.ini already contains BuildSpeed=0.001. Lowering AI attack delays does not postpone the map's scripted waves. The engine still has production cycles and factory exit delays, so the earlier ~0.06-second claim is not verified.
+
+The game log also records repeated factory exit failures/refunds for Prism Tanks and rejected production requests for Apocalypse and Prism Tanks. Keep factory exits clear and place rally points in open ground; changing BuildSpeed does not clear congestion.
+
+Changes:
+- INI/Map Code/Survival.ini: remove low-power build penalties (all three Ares global power production factors set to 1.0). This affects all houses in Survival, not exclusively the human player. Existing BuildSpeed=0.001 retained.
+- Maps/Yuri's Revenge/Survival/1_survive_death_r3_dctanxman.map: postpone the first round from 300 to 1200 game seconds; shift all 41 initially enabled first-round combat, warning and completion timers by the same 900 game seconds, preserving wave spacing and round transitions. Initial countdown updated to match. At 60 simulation frames/sec, this gives roughly five real minutes before the first scripted wave; wall time varies with game speed.
+- Later-round triggers, teams, scripts and map geometry preserved.
+
+Validation: compared every parsed map value against the backup; only the 41 intended elapsed-time events and initial countdown action differ. Checked Survival production/power settings and existing cash/reactor bonuses. No in-game playtest performed. Restart the client and start a NEW match; existing saves retain previous rules and triggers.
+
+Local backups and exact timer manifest: `doc/local-backups/survival-production-20261102-221027`. The customized map is included in the repository through a narrow .gitignore exception so the opening-wave fix is installed when the mod is pulled or extracted.
+
+
+## 2026-11-02: Enable god mode for RA2 Pro 2v2
+
+Reported map: [8] Cliffs of Mongolia. Confirmed INI/MPMaps.ini routes RA2 Pro 2v2 to its own Map Code file, which previously contained only [GAPOWR] BuildTimeMultiplier=0.75. Last generated spawnmap.ini had no custom academy/reactor, map reveal or global build-speed rules. The client also forced RA2 Classic mode, restricting Yuri technology.
+
+- Replaced INI/Map Code/RA2 Pro 2v2.ini with the shared god-mode rules from Survival.ini, including the recent low-power production adjustment. Preserved the original GAPOWR multiplier. No Survival map events are copied.
+- INI/MPMaps.ini: changed only RA2 Pro 2v2ForcedOptions/chkRA2Mode to false so the existing universal Allied/Soviet/Yuri rules can use the Yuri's Revenge technology set. The mode remains listed as RA2 Pro 2v2 and retains its maps, team mappings and other forced settings.
+- Cliffs of Mongolia source map is unchanged.
+- Backups: `doc/local-backups/ra2-pro-godmode-20261102-221258`. INI/MPMaps.ini is now included through a narrow .gitignore exception so the required lobby setting is installed with the mod.
+
+Validation: mode routing, full shared-rule parity, custom structures/cash/veterancy, reveal, all six superweapon unlocks, original power-plant modifier and absence of duplicate sections checked. Compared lobby configuration byte-for-byte except the intended toggle. No live match tested. Restart the currently open CnCNet client and create a new match; existing saves/generated spawnmap.ini are not patched.
