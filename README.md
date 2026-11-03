@@ -1,4 +1,4 @@
-# RA2 Mod
+﻿# RA2 Mod
 
 Custom configuration mod for CnCNet Yuri's Revenge: Player God-Mode Sandbox (Instant Build, Infinite Cash, 90% Discount, Elite Units, +100,000 Power, **Universal All-Country Tech Unlocked**, and **Instant Full Map Reveal**) paired with brutal, swarming Nightmare AI and a 4.5-minute base defense grace period.
 
@@ -27,9 +27,9 @@ The repository includes `INI/MPMaps.ini` and the customized Survival map so thes
 3. **Extract to Base Game Directory:**
    - Extract the contents directly into your **base game installation directory** (where `gamemd.exe`, `CnCNetYRLauncher.exe`, and `ra2.ini` are located).
    - When prompted by Windows, choose **Replace / Overwrite all existing files**.
-4. **⚠️ DO NOT UPDATE THE CNCNET CLIENT:**
-   - When launching the CnCNet client, if a prompt asks to check for updates or install a client update, **do not update** (or click No/Cancel).
-   - *Updating CnCNet will overwrite and reset your customized INI files back to stock!*
+4. **ðŸ›¡ï¸ AUTO-UPDATES BYPASSED & BLOCKED:**
+   - The repository comes pre-configured with ModMode=true in Resources/ClientDefinitions.ini and empty mirror definitions in Client/UpdaterConfig.ini & updateconfig.ini.
+   - This permanently disables the client auto-updater and suppresses all update check notifications/popups in the lobby, ensuring your customized God Mode INI files are never overwritten.
 5. **Skirmish Lobby Settings:**
    - Open CnCNet and go to **Skirmish**.
    - **Game Mode:** Choose any mode (Battle / Standard, Free For All, Team Alliance, Survival, etc.).

@@ -27,3 +27,12 @@
 !/Maps/Yuri's Revenge/Survival/
 /Maps/Yuri's Revenge/Survival/*
 !/Maps/Yuri's Revenge/Survival/1_survive_death_r3_dctanxman.map
+
+# Client configuration to bypass and block auto-update notifications
+!/Resources/
+/Resources/*
+!/Resources/ClientDefinitions.ini
+!/Client/
+/Client/*
+!/Client/UpdaterConfig.ini
+!/updateconfig.ini

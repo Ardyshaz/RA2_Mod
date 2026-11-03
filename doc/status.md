@@ -1,3 +1,13 @@
+# Current update: Bypass & Block CnCNet Auto-Update Notifications (2026-11-03)
+
+The player requested to bypass/block the update check notification prompt in the CnCNet lobby:
+- **Problem:** When launching the CnCNet client, an update check runs in the background. If updates are found or connection checks run, an update prompt/notification appears in the lobby. Updating the client overwrites all custom God Mode configuration files.
+- **Solution Applied:**
+  1. **Configured ModMode:** Added ModMode=true under [Settings] in Resources/ClientDefinitions.ini. This activates the official CnCNet modding mode, which bypasses auto-update checks and suppresses file modification warnings.
+  2. **Neutralized Update Mirrors:** Created Client/UpdaterConfig.ini and root updateconfig.ini with IgnoreMasks=* and an empty [DownloadMirrors] section. The updater library sees 0 download mirrors and ceases all remote update checks.
+  3. **Repository Inclusion:** Configured .gitignore to track Resources/ClientDefinitions.ini, Client/UpdaterConfig.ini, and updateconfig.ini so the bypass persists across git pulls and clones.
+
+---
 # Current update: Survival Mode Wave 2 Crash Fix & Complete Defense Engine Stabilization (2026-11-02)
 
 The player reported a crash during Skirmish on Survival mode (`survive death r3` / `1_survive_death_r3_dctanxman.map`):
