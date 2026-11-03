@@ -42,8 +42,10 @@ The repository includes `INI/MPMaps.ini` and the customized Survival map so thes
      - **Player Mega Nuclear Reactor** ($0, instant)
      - **Elite Combat Academy** ($0, instant)
    - Enjoy instant construction, infinite money, +100,000 power, and 3-chevron Elite armies!
+   - Deploy **any MCV** to unlock all standard faction buildings, including refineries, radar, airfields, repair depots, battle labs, support buildings, defenses and superweapons. **No Battle Lab or radar is required to unlock them.** Battle Labs are optional.
    - Build **any 1 Barracks** to unlock **all Allied, Soviet, and Yuri infantry** (plus unlimited Tanya, Boris, and Yuri Prime armies!).
    - Build **any 1 War Factory** to unlock **all Allied, Soviet, and Yuri armor & aircraft**!
+   - Build **any 1 Naval Shipyard** to unlock **all 12 Allied, Soviet, and Yuri naval units**, including transports, Dolphin, Giant Squid, Aircraft Carrier, Dreadnought, and Boomer. No radar or battle lab is required.
    - Access **all 6 Superweapons** (Nuke, Weather Storm, Dominator, Iron Curtain, Chronosphere, Genetic Mutator) directly from your ConYard!
    - You have **4.5 minutes** of opening peace to build a fortress before the Nightmare AI swarm attacks!
 
@@ -58,6 +60,7 @@ The repository includes `INI/MPMaps.ini` and the customized Survival map so thes
 | **All-in-One Infantry Tab** | Building any single Barracks unlocks **all infantry**: Tanya, Boris, Yuri Prime, British Sniper, Iraqi Desolator, Cuban Terrorist, Chrono Legionnaire, SEAL, Spy, Rocketeer, Yuri Clone, Brute, Virus, and Secret Tech (Psi-Commando, Chrono Ivan, Chrono Commando). | **Player Focused** |
 | **Unlimited Hero Army** | `BuildLimit=-1` removes restrictions on **Tanya**, **Boris**, and **Yuri Prime**. You can train an unlimited army of heroes simultaneously! `AIBuildThis=no` keeps hero armies player-exclusive. | **Player Only** (`AIBuildThis=no`) |
 | **All-in-One Vehicle & Air Tab** | Building any single War Factory unlocks **all vehicles & aircraft**: Prism Tank, Mirage, Battle Fortress, Tank Destroyer, Robot Tank (immune to shutdown), Apocalypse Tank, Kirov Airship, Siege Chopper, V3, Tesla Tank, Demolition Truck, Yuri Magnetron, Master Mind, Floating Disc, Gattling Tank, Chaos Drone, Slave Miner, Harrier, Black Eagle, and Nighthawk. | **Player Focused** |
+| **All-in-One Naval Tab** | Any single Allied, Soviet, or Yuri shipyard unlocks and produces all 12 naval units across all factions. All three shipyards are available from any Construction Yard. | **Player Focused** |
 | **All 6 Superweapons Unlocked** | Deploy your ConYard and build **all 6 Superweapons** regardless of faction: Chronosphere, Weather Controller, Iron Curtain, Nuclear Silo, Genetic Mutator, and Psychic Dominator. Blocked from AI via `AIBuildThis=no`. | **Player Only** (`AIBuildThis=no`) |
 | **All-in-One Defenses Tab** | Build Grand Cannons, Prism Towers, Tesla Coils, Psychic Towers, Gatling Cannons, Patriot AA, Flak AA, and Battle Bunkers from your ConYard. | **Player Focused** |
 | **All Special Support Buildings** | Build Yuri/Soviet Cloning Vats (duplicate all trained infantry for free), Soviet Industrial Plant, Allied Ore Purifier, Yuri Grinder, and Robot Control Center right from your ConYard. | **Player Only** (`AIBuildThis=no`) |

@@ -346,3 +346,29 @@ Reported map: [8] Cliffs of Mongolia. Confirmed INI/MPMaps.ini routes RA2 Pro 2v
 - Backups: `doc/local-backups/ra2-pro-godmode-20261102-221258`. INI/MPMaps.ini is now included through a narrow .gitignore exception so the required lobby setting is installed with the mod.
 
 Validation: mode routing, full shared-rule parity, custom structures/cash/veterancy, reveal, all six superweapon unlocks, original power-plant modifier and absence of duplicate sections checked. Compared lobby configuration byte-for-byte except the intended toggle. No live match tested. Restart the currently open CnCNet client and create a new match; existing saves/generated spawnmap.ini are not patched.
+
+
+## 2026-11-03: Complete naval roster from any one shipyard
+
+The previous naval block modified only five entries, left their original faction/tech prerequisites intact, and used SQID instead of the Giant Squid's actual SQD type ID. It did not provide shipyard alternatives or cover the full roster.
+
+Updated all 12 existing god-mode files (including RA2 Pro 2v2, Survival, Naval War and Standard). All three yards are available from any Construction Yard. Each of the 12 standard naval units accepts GAYARD, NAYARD or YAYARD as a complete alternative prerequisite, has TechLevel=1 and all-country ownership, and explicitly lists all three yards in BuiltAt. Original weapons, movement, naval flags, costs and production-speed settings are preserved. No radar or battle lab is required.
+
+Roster: Allied LCRF, DEST, AEGIS, CARRIER, DLPH; Soviet SAPC, HYD, SUB, SQD, DRED; Yuri YHVR, BSUB.
+
+Ares references: https://ares-developers.github.io/Ares-docs/new/prerequisites.html and https://ares-developers.github.io/Ares-docs/new/buildings/factoriesandcloning.html .
+
+Backups and manifest: `doc/local-backups/universal-navy-20261103-183235`. Restart CnCNet and start a new match to load the new map-code rules. Shoreline/water placement is still required. No in-game playtest performed.
+
+Validation: checked 4320 combinations across 12 modes, 10 countries, 3 yards and 12 units. Verified non-naval sections unchanged, no duplicate sections, and the RA2 Pro 2v2 overlay restores the shipyards disabled by the Cliffs of Mongolia map.
+
+
+## 2026-11-03: Unlock all standard faction buildings without Battle Labs
+
+Extended every one of the 12 god-mode files to cover 54 faction/player structures. Each building accepts any Construction Yard as its complete prerequisite, TechLevel=1 and all-country ownership; this includes power/refinery/radar/airfield/repair/lab/wall infrastructure that previously retained stock prerequisites. Battle Labs are buildable but optional. Original AIBuildThis settings, bonuses, power output, weapons and costs are preserved. The six superweapon structures explicitly retain a one-building limit to override maps that hide them with BuildLimit=0.
+
+Completed basic infantry and vehicle roster coverage (including engineers, dogs, GI/Guardian GI/Flak Trooper, miners, basic tanks, IFV and MCVs) using the same any-one-barracks or any-one-war-factory alternatives. Removed stolen Allied/Soviet/Yuri technology requirements from infantry, including the secret infantry types. The previous 12-unit naval unlock is preserved. Aircraft still use their engine-required landing facilities; these facilities are now available directly from the Construction Yard.
+
+Backups and exact roster manifest: `doc/local-backups/all-tech-unlock-20261103-183515`. Standard playable structures are covered; civilian/campaign props are not added to the build sidebar. Restart CnCNet and start a new match. No in-game playtest performed.
+
+Validation: checked 40680 country/prerequisite combinations across all 12 modes, absence of duplicate sections, preserved non-unlock values and the complete naval roster. Configuration checks passed; live play remains untested.
