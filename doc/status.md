@@ -372,3 +372,16 @@ Completed basic infantry and vehicle roster coverage (including engineers, dogs,
 Backups and exact roster manifest: `doc/local-backups/all-tech-unlock-20261103-183515`. Standard playable structures are covered; civilian/campaign props are not added to the build sidebar. Restart CnCNet and start a new match. No in-game playtest performed.
 
 Validation: checked 40680 country/prerequisite combinations across all 12 modes, absence of duplicate sections, preserved non-unlock values and the complete naval roster. Configuration checks passed; live play remains untested.
+
+
+## 2026-11-03: Route Teamgame and custom-map modes to god-mode rules
+
+Reported match: Teamgame / Mount Rush More Survival (4p) -- MISSING (randomized 2018-12-20 130557), custom-map hash f3ee31836208356367ffdb08235a3e25ab1c7254. Confirmed the generated spawnmap.ini contained no BuildSpeed override, SpySat reveal or PLAYERACAD/PLAYERNRCT definitions. Nightmare AI was selected, so the enemy modifiers were active without the human sandbox rules.
+
+INI/MPMaps.ini now explicitly maps every AllowedCustomGameModes entry to Standard.ini: Standard, Custom Map, Teamgame, Duel, Airwar, Nukewar and Navalwar. Missing modes were registered in GameModes; Standard's existing registration was retained. The custom map, team settings, Survival triggers and existing mode routes are unchanged. The shared rules include full technology and naval unlocks. This addresses missing rule loading; it does not bypass engine production cycles or factory exits, and custom Survival waves remain script-controlled.
+
+CnCNet game-mode configuration reference: https://raw.githubusercontent.com/CnCNet/xna-cncnet-client/develop/Docs/INISystem.md .
+
+Backup/manifest: `doc/local-backups/custom-mode-routing-20261103-184039`. The pre-existing local updateconfig.ini modification is preserved. The open client must be restarted and a new match created to load the routes; existing saves/spawnmap.ini retain the previous rules.
+
+Validation: all seven custom-mode routes resolve; previous mode/map settings unchanged; no duplicate sections. Combined the exact custom map, shared rules and selected Nightmare AI settings to verify BuildSpeed/BuildupTime, Construction Yard reveal and registered/free academy/reactor. Trigger/action/event/team/script values match the previous map-plus-Nightmare combination (Nightmare adds its own triggers; the new mode route adds none). Actual client launch/playtest remains unverified.

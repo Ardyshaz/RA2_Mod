@@ -6,6 +6,7 @@ Custom configuration mod for CnCNet Yuri's Revenge: Player God-Mode Sandbox (Ins
 
 ## Latest Survival and RA2 Pro 2v2 fixes
 
+- **Custom/downloaded maps:** Standard, Custom Map, Teamgame, Duel, Airwar, Nukewar, and Navalwar now load the shared god-mode rules. This includes Mount Rush More Survival under Teamgame. Restart the client and start a new match after updating.
 - **RA2 Pro 2v2:** now loads the full god-mode rules. Its forced RA2 Classic restriction is disabled to allow Allied, Soviet, and Yuri technology. The original power-plant build-time modifier is preserved.
 - **Survival:** low power no longer adds production penalties. On **[1] Survive Death R3**, the first scripted wave starts at 1200 game seconds instead of 300 (about five real minutes at 60 simulation frames per second). First-round warnings and completion timers move with the waves.
 - Restart CnCNet and start a **new match** after updating. Deploy your MCV, then build the free Mega Reactor or Elite Academy for the cash and veterancy bonuses.
