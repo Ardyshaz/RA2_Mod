@@ -385,3 +385,12 @@ CnCNet game-mode configuration reference: https://raw.githubusercontent.com/CnCN
 Backup/manifest: `doc/local-backups/custom-mode-routing-20261103-184039`. The pre-existing local updateconfig.ini modification is preserved. The open client must be restarted and a new match created to load the routes; existing saves/spawnmap.ini retain the previous rules.
 
 Validation: all seven custom-mode routes resolve; previous mode/map settings unchanged; no duplicate sections. Combined the exact custom map, shared rules and selected Nightmare AI settings to verify BuildSpeed/BuildupTime, Construction Yard reveal and registered/free academy/reactor. Trigger/action/event/team/script values match the previous map-plus-Nightmare combination (Nightmare adds its own triggers; the new mode route adds none). Actual client launch/playtest remains unverified.
+
+
+## 2026-11-17: Stabilization of god-mode rules & shipyard placement
+
+- Cleaned up orphaned syntax lines in INI header before [RAZER-GAOREP] and [TANY].
+- Ensured original Soviet nuclear reactor [NANRCT] is disabled (TechLevel=-1) to prevent AI building it and crashing survival waves.
+- Added Adjacent=20 to GAYARD, NAYARD, and YAYARD across all 12 skirmish mode files to facilitate shoreline/water placement directly from ConYard.
+- Added [SQID] and [SQUID] alias sections matching [SQD] to ensure 100% naval roster coverage across all maps.
+- Ensured low power production speed protection (LowPowerPenaltyModifier=1.0) is present across all modes.
