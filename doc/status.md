@@ -394,3 +394,22 @@ Validation: all seven custom-mode routes resolve; previous mode/map settings unc
 - Added Adjacent=20 to GAYARD, NAYARD, and YAYARD across all 12 skirmish mode files to facilitate shoreline/water placement directly from ConYard.
 - Added [SQID] and [SQUID] alias sections matching [SQD] to ensure 100% naval roster coverage across all maps.
 - Ensured low power production speed protection (LowPowerPenaltyModifier=1.0) is present across all modes.
+
+## 2026-11-17: New Super Large 8-Player Naval & Island Map: [8] God of the Seas
+
+- Created `[8] God of the Seas (Super Island Naval War)` based on the maximum-dimension 208x208 oceanic archipelago terrain (`Maps/Yuri's Revenge/Battle/8_god_of_the_seas.map` and `Maps/Custom/8_god_of_the_seas.map`).
+- Configured 8 balanced circular starting islands with full deep-water shoreline access for large fleet engagements.
+- Enhanced central and neutral islands with high-value capturable tech structures:
+  - `CAMACH` (Tech Civilian Machine Shop): Map-wide auto-repair for all naval vessels and armored vehicles.
+  - `CAHOSP` (Tech Hospital): Map-wide auto-healing for all infantry units.
+  - `CATECH` (Tech Secret Lab): Unlocks secret tech bonus units.
+  - `CAAIRP` (Tech Airport): Grants free paratrooper reinforcements.
+  - `CAOILD` (Tech Oil Derrick): Continuous extra income.
+  - `GASPYSAT` (Tech Spy Satellite): Full radar map reveal.
+- Enabled water crate warfare: `[CrateRules]` with `CrateOnlyOnLand=0` and `CrateRegen=3` allows ships to collect money, armor, speed, firepower, and unit crates directly on the open ocean.
+- Registered map in `INI/MPMaps.ini` with custom team start mappings:
+  - 4v4 Left vs Right
+  - 4v4 Top vs Bottom
+  - 4v4 Alternating
+  - 2v2v2v2 Island Allies
+- Included lobby preview images (`8_god_of_the_seas.png`).
