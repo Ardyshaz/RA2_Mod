@@ -413,3 +413,26 @@ Validation: all seven custom-mode routes resolve; previous mode/map settings unc
   - 4v4 Alternating
   - 2v2v2v2 Island Allies
 - Included lobby preview images (`8_god_of_the_seas.png`).
+
+## 2026-11-17: Island & Naval AI Overhaul (Nightmare AI & Skirmish Rules)
+
+- Diagnosed the root cause of idle/passive AI on island and water maps:
+  1. Nightmare AI originally had `AIBaseNormal=no` and `AIExtraCounts=1,1,0` on shipyards (`GAYARD`, `NAYARD`, `YAYARD`), which completely disabled shipyard construction on Hard/Brutal difficulty.
+  2. All naval attack triggers in `Extreme AI Beta.ini` (`RZRAITT82`, `RZRAITT166`, `RZRAITT144`, `RZRAITT145`) required the human player to already own faction Battle Labs (`GATECH`, `NATECH`) or shipyards, and hunter triggers (`RZRAITT29`, `RZRAITT83`, `RZRAITT106`) required the human player to already have naval units before firing.
+  3. Ground units cannot pathfind across deep water without land bridges, so land armies froze in place while 0 naval strike teams were created.
+- Implemented full Shipyard AI across `Extreme AI Beta.ini` and all 12 skirmish mode files:
+  - Enabled `AIBaseNormal=yes`, `AIBuildThis=yes`, `AIBuildCounts=2,2,2`, `AIExtraCounts=2,2,2`, and `Adjacent=30` on Allied, Soviet, and Yuri shipyards.
+- Restructured and boosted all Naval Attack Triggers to fire proactively without requiring player Battle Labs or prior player naval units:
+  - `RZRAITT29` (Allied Naval Hunters: Destroyers, Dolphins, Carriers, Aegis): Condition changed to timer/pool (`4,<none>`), TechLevel=1, weight boosted to 250-400.
+  - `RZRAITT166` (Allied Naval Bombard: Aircraft Carriers, Aegis, Dolphins): Condition removed `GATECH`, changed to timer/pool, weight boosted to 250-400.
+  - `RZRAITT82` (Soviet Naval Bombard: Dreadnoughts, Sea Scorpions, Squids): Condition removed `NATECH`, changed to timer/pool, weight boosted to 250-400.
+  - `RZRAITT83` (Soviet Naval Hunters: Typhoon Subs, Sea Scorpions): Condition changed to timer/pool, weight boosted to 250-400.
+  - `RZRAITT106` (Yuri Naval Hunters: Boomer Subs): Condition changed to timer/pool, weight boosted to 250-400.
+  - `RZRAITT144` & `RZRAITT145` (Yuri Boomer Bombard): Condition removed `GAYARD`/`NAYARD`, changed to timer/pool, weight boosted to 250-400.
+- Restructured Air and Amphibious/Hover Attack Triggers to assault across open water:
+  - `RZRAITT80` & `RZRAITT81` (Soviet Kirov Airships): Condition removed `NATECH`, changed to timer/pool, TechLevel=1, weight boosted to 200-500.
+  - `RZRAITT113` (Yuri Floating Discs): Condition removed `YATECH`, changed to timer/pool, weight boosted to 250-400.
+  - `RZRAITT30` (Allied Rocketeers): Weight boosted to 250-400, TechLevel=1.
+  - `RZRAITT50` (Allied Air Strikes / Black Eagles): Enabled `Autocreate=yes` and allowed all Allied nations.
+  - `RZRAITT164` (Allied Robot Tanks): Removed `GAROBO` requirement, weight boosted to 200-300 so hover tanks cross water onto player shores.
+- Added `[8] Octo Bay` with multi-mode support (Battle, Naval War, FFA, Team Alliance, Cooperative) as an 8-player island map connected by 32 bridges for combined naval and bridge-assault gameplay.
