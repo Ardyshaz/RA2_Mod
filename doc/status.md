@@ -436,3 +436,28 @@ Validation: all seven custom-mode routes resolve; previous mode/map settings unc
   - `RZRAITT50` (Allied Air Strikes / Black Eagles): Enabled `Autocreate=yes` and allowed all Allied nations.
   - `RZRAITT164` (Allied Robot Tanks): Removed `GAROBO` requirement, weight boosted to 200-300 so hover tanks cross water onto player shores.
 - Added `[8] Octo Bay` with multi-mode support (Battle, Naval War, FFA, Team Alliance, Cooperative) as an 8-player island map connected by 32 bridges for combined naval and bridge-assault gameplay.
+
+## 2026-11-20: Instant Superweapons & Support Powers (Zero Cooldown / No Waiting List)
+
+- Configured instant recharge and zero cooldown for all SuperWeapons and Special Powers:
+  - Set `RechargeTime=0.01` (~0.6 seconds), removing the waiting list so abilities can be used continuously.
+  - Set `SW.InitialReady=yes` so superweapons are ready to fire immediately upon deployment without an initial countdown.
+  - Set `SW.AllowAI=no` to keep instant superweapons strictly player-exclusive and prevent AI spam.
+  - Set `ForceShieldBlackoutDuration=0` under `[General]` so Force Shield does not shut down base power.
+- Applied across all superweapons and special abilities:
+  - `[NukeSpecial]` (Soviet Nuclear Missile Silo)
+  - `[MultiSpecial]` (RA2 Multi-Missile Nuke)
+  - `[LightningStormSpecial]` (Allied Weather Controller)
+  - `[PsychicDominatorSpecial]` (Yuri Psychic Dominator)
+  - `[GeneticConverterSpecial]` (Yuri Genetic Mutator)
+  - `[IronCurtainSpecial]` (Soviet Iron Curtain)
+  - `[ChronoSphereSpecial]` & `[ChronoWarpSpecial]` (Allied Chronosphere)
+  - `[ForceShieldSpecial]` (Force Shield)
+  - `[PsychicRevealSpecial]` (Psychic Sensor Radar Reveal)
+  - `[SpyPlaneSpecial]` (Soviet Spy Plane)
+  - `[ParaDropSpecial]`, `[AmericanParaDropSpecial]`, `[AmerParaDropSpecial]`, `[SovietParaDropSpecial]`, `[YuriParaDropSpecial]` (Airborne & Tech Airport Paratrooper drops)
+- Applied to:
+  - `INI/Game Options/SuperWeapons/All.ini`, `Defensive.ini`, `Offensive.ini`
+  - All 12 Skirmish game modes in `INI/Map Code/*.ini`
+  - Custom maps `Maps/Yuri's Revenge/Battle/8_god_of_the_seas.map` and `Maps/Custom/8_god_of_the_seas.map`
+  - Whitelisted `INI/Game Options/SuperWeapons/*.ini` in `.gitignore`
