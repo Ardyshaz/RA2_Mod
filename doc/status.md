@@ -461,3 +461,19 @@ Validation: all seven custom-mode routes resolve; previous mode/map settings unc
   - All 12 Skirmish game modes in `INI/Map Code/*.ini`
   - Custom maps `Maps/Yuri's Revenge/Battle/8_god_of_the_seas.map` and `Maps/Custom/8_god_of_the_seas.map`
   - Whitelisted `INI/Game Options/SuperWeapons/*.ini` in `.gitignore`
+
+## 2026-11-20: Game Speed & Performance Optimization (Large Map Lag Fix)
+
+- Diagnosed the cause of simulation slowdown and frame rate drops on 8-player 208x208 maps:
+  1. Default client settings had `GameSpeed=2` or `GameSpeed=1` (limiting the simulation to 30-45 FPS instead of 60 FPS).
+  2. `VideoBackBuffer` was missing or unbuffered on modern Windows DirectDraw drivers.
+  3. `TotalAITeamCap` was set to 100 per bot; with 7 bots, up to 700 active squads simultaneously calculated pathfinding across 43,264 cells on a single 32-bit CPU core.
+  4. `ContentScan=yes` in `Extreme AI Beta.ini` forced the AI to perform exhaustive cell-by-cell scans of the 208x208 map grid every frame.
+  5. Multi-core thread jumping occurred in ts-ddraw with `SingleProcAffinity=No`.
+- Implemented global performance optimizations:
+  - Enabled unlocked 60 FPS simulation (`GameSpeed=0`) across `RA2MD.ini` and `ra2.ini` (`[Options]`, `[Skirmish]`, `[LAN]`, `[WonlinePref]`).
+  - Added `VideoBackBuffer=no` in `RA2MD.ini` and `ra2.ini` to eliminate DirectDraw render stutter.
+  - Enabled `SingleProcAffinity=Yes` and `TargetFPS=60` in `ddraw.ini` to pin the 32-bit game thread to a single core and prevent multi-core cache migration latency.
+  - Calibrated `TotalAITeamCap=40,40,40` across `Extreme AI Beta.ini` and all 12 skirmish mode files (providing a massive, relentless swarm of ~280 total bot squads without saturating the single-threaded pathfinding queue).
+  - Disabled map-wide cell scanning (`ContentScan=no`) across all difficulty sections in `Extreme AI Beta.ini`.
+  - Added `TreeTargeting=no` under `[General]` across all modes and Nightmare AI to stop CPU cycles wasted targeting environmental trees.
