@@ -33,9 +33,11 @@
 !/Maps/Yuri's Revenge/Battle/
 /Maps/Yuri's Revenge/Battle/*
 !/Maps/Yuri's Revenge/Battle/8_god_of_the_seas.*
+!/Maps/Yuri's Revenge/Battle/8_malaboo_bay.*
 !/Maps/Custom/
 /Maps/Custom/*
 !/Maps/Custom/8_god_of_the_seas.*
+!/Maps/Custom/8_malaboo_bay.*
 
 # Client configuration to bypass and block auto-update notifications
 !/Resources/
