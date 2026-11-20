@@ -1,3 +1,82 @@
+# Current update: 60 FPS Engine Optimization & Large Map Lag Elimination (2026-11-20)
+
+The player reported frame slowdown and simulation lag when playing on large 8-player maps with extensive unit armies:
+- **Root Cause Diagnosed:**
+  1. **DirectDraw VRAM Bottleneck:** Default software video back-buffering (`VideoBackBuffer=yes`) incurs heavy CPU-GPU memory copying over Windows 10/11 DDraw emulation layers.
+  2. **Multi-Core Thread Desynchronization:** The 2001 Westwood Ares/TS engine is single-threaded; Windows scheduler thread bouncing causes micro-stuttering.
+  3. **Engine AI Squad Limit Saturation:** `TotalAITeamCap=100` across 7 AI bots simultaneously created up to 700 active team tasks, exceeding the engine's internal team array limits.
+  4. **Redundant Map Cell Scanning:** Engine scanning for destructible trees and continuous full-map content scanning consumed excess CPU cycles.
+- **Optimizations Applied:**
+  1. **DirectDraw Hardware Acceleration (`RA2MD.ini` & `ra2.ini`):**
+     - `VideoBackBuffer=no`: Renders directly to video memory without CPU back-buffer copy penalties.
+     - `GameSpeed=0`: Unlocks engine simulation tick rates for smooth 60 FPS playback.
+  2. **Thread Affinity & FPS Limiter (`ddraw.ini`):**
+     - `SingleProcAffinity=Yes`: Locks the game process to a single CPU core, eliminating core-hopping micro-stutters.
+     - `TargetFPS=60`: Caps frame pacing precisely to 60 FPS to prevent physics spikes or runaway clock cycles.
+  3. **Calibrated AI Squad Concurrency (`Extreme AI Beta.ini` & Skirmish INIs):**
+     - Set `TotalAITeamCap=40,40,40`: Allows up to 40 active squads per bot (280 simultaneous squads across 7 bots), delivering massive attack waves while preserving 60 FPS performance.
+  4. **Engine Overhead Reductions:**
+     - `ContentScan=no`: Disables repetitive cell content scanning.
+     - `TreeTargeting=no`: Eliminates expensive AI line-of-sight checks against destructible foliage.
+
+---
+
+# Current update: Instant Superweapons & Support Powers - Zero Waiting List God Mode (2026-11-20)
+
+The player requested instant superweapon recharge with zero cooldown ("no waiting list, instant available and can use again and again without waiting") across all superweapons and support powers:
+- **Mechanics Applied:**
+  1. **Zero Cooldown / Continuous Firing:**
+     - `RechargeTime=0.01` (~0.6 seconds / 36 frames) applied across all 6 superweapons and all support powers.
+     - Players can fire superweapons repeatedly without any wait or countdown.
+  2. **Immediate Readiness on Construction:**
+     - `SW.InitialReady=yes`: The superweapon is 100% charged and ready to fire the exact millisecond the silo or building finishes placement.
+  3. **Zero Power Blackout on Force Shield:**
+     - `ForceShieldBlackoutDuration=0`: Base power remains fully active (100,000 power) when Force Shield is activated.
+  4. **Player-Exclusive Protection:**
+     - `SW.AllowAI=no`: AI opponents are strictly prohibited from using or spamming instant superweapons.
+  5. **Covered Superweapons & Powers:**
+     - Allied Chronosphere (`GACSPH`) & Weather Controller (`GAWEAT`)
+     - Soviet Nuclear Missile Silo (`NAMISL`) & Iron Curtain (`NAIRON`)
+     - Yuri Psychic Dominator (`YAPPET`) & Genetic Mutator (`YAGNTC`)
+     - American Paratroopers (`AmerParaDropSpecial`) & Soviet/Yuri Paratroopers (`ParaDropSpecial`)
+     - Airborne Artillery Reinforcements (`AirborneSpecial`)
+     - Allied Force Shield (`ForceShieldSpecial`)
+     - Soviet Spy Plane Reconnaissance (`SpyPlaneSpecial`)
+     - Yuri Psychic Reveal (`PsychicRevealSpecial`)
+- **Files Updated:**
+  - `INI/Game Options/SuperWeapons/All.ini`, `Defensive.ini`, `Offensive.ini`
+  - All 12 Skirmish INIs in `INI/Map Code/`
+  - `Maps/Yuri's Revenge/Battle/8_god_of_the_seas.map` and `Maps/Custom/8_god_of_the_seas.map`
+
+---
+
+# Current update: 8-Player Giant Maps & Island Naval Warfare AI Overhaul (2026-11-20)
+
+The player requested super-large 8-player maps featuring island and naval warfare, noting that AI bots typically become inert on island maps without ground paths:
+- **Map Additions:**
+  1. **`[8] God of the Seas (Super Island Naval War)` (`8_god_of_the_seas.map`):**
+     - Super-large 208x208 coordinate grid.
+     - 8 isolated fortress islands separated by deep navigable ocean channels.
+     - Fully provisioned with diamond ore, civilian gems, tech hospitals, machine shops, airports, and oil derricks.
+  2. **`[8] Octo Bay (Island & Bridges Naval War)` (`8_octo_bay.map`):**
+     - Hybrid tactical map with 32 reinforced bridge crossings connecting outer islands to a central treasure archipelago.
+  3. **Lobby Integration & Previews:**
+     - Configured in `MPMaps.ini` under `[Battle]`, `[MeatGrinder]`, `[FreeForAll]`, and `[Megawealth]`.
+     - Generated 480x480 high-res lobby radar preview PNGs in `Maps/Yuri's Revenge/Battle/` and `Maps/Custom/`.
+- **Naval Warfare AI Overhaul (`Extreme AI Beta.ini` & Skirmish INIs):**
+  1. **Shipyard Production Fix:**
+     - Set `AIBaseNormal=yes` on `GAYARD`, `NAYARD`, and `YAYARD` so AI builders register shipyards as essential core structures.
+     - Set `AIBuildCounts=2,2,2` to compel bots to build duplicate shipyards for rapid fleet reinforcement.
+  2. **Removed Tech Gating on Naval Strike Triggers:**
+     - Standard triggers required Soviet/Allied Battle Labs before naval attack teams could mobilize.
+     - Removed prerequisite blockers from triggers `RZRAITT29`, `RZRAITT82`, `RZRAITT83`, `RZRAITT106`, `RZRAITT144`, `RZRAITT145`, and `RZRAITT166`, allowing Dreadnoughts, Aircraft Carriers, Boomer Submarines, Destroyers, and Sea Scorpions to attack early.
+  3. **Amphibious Ground Units:**
+     - Allied Robot Tanks (`ROBO`) upgraded with `SpeedType=Hover` and `MovementZone=AmphibiousDestroyer`, enabling bots to launch cross-ocean armored raids over water.
+  4. **Heavy Air Armadas:**
+     - AI scripts reinforced with Kirov Airships, Yuri Floating Discs, Rocketeers, and Black Eagles to strike across water barriers regardless of bridge destruction.
+
+---
+
 # Current update: Bypass & Block CnCNet Auto-Update Notifications (2026-11-03)
 
 The player requested to bypass/block the update check notification prompt in the CnCNet lobby:

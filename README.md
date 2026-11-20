@@ -1,22 +1,18 @@
-﻿# RA2 Mod
+﻿# RA2 GodMod
 
-Custom configuration mod for CnCNet Yuri's Revenge: Player God-Mode Sandbox (Instant Build, Infinite Cash, 90% Discount, Elite Units, +100,000 Power, **Universal All-Country Tech Unlocked**, and **Instant Full Map Reveal**) paired with brutal, swarming Nightmare AI and a 4.5-minute base defense grace period.
+Custom configuration mod for CnCNet Yuri's Revenge: Player God-Mode Sandbox (Instant Build, Infinite Cash, 90% Discount, Elite Units, +100,000 Power, **Universal All-Country Tech Unlocked**, **Instant Full Map Reveal**, and **Instant Zero-Cooldown Superweapons**) paired with aggressive, swarming Nightmare AI and a 4.5-minute base defense grace period.
 
 ---
 
-## Latest Survival and RA2 Pro 2v2 fixes
+## 🚀 Latest Updates & Fixes
 
-- **Lag & Game Speed Optimization for Large Maps:** Unlocked 60 FPS maximum simulation speed (`GameSpeed=0`), eliminated DirectDraw stutters (`VideoBackBuffer=no`), pinned thread affinity to prevent multi-core micro-stutters (`SingleProcAffinity=Yes` and `TargetFPS=60` in `ddraw.ini`), optimized AI squad limits to 40 per bot (`TotalAITeamCap=40,40,40` to prevent pathfinding thread bottlenecks on 208x208 maps with 7 bots), disabled map-wide cell scanning (`ContentScan=no`), and disabled tree targeting (`TreeTargeting=no`).
-- **Instant Superweapons & Support Powers (No Cooldown / No Waiting List):** All superweapons and support powers now have zero waiting list (`RechargeTime=0.01` ~0.6s) and are ready to fire immediately upon deployment (`SW.InitialReady=yes`), protected exclusively for the player (`SW.AllowAI=no`). You can fire Nukes, Lightning Storms, Psychic Dominators, Genetic Mutators, Iron Curtains, Chronospheres, Paratroopers, American Airborne, Spy Planes, Psychic Reveals, and Force Shields (with 0 blackout duration) continuously without waiting!
-- **New Super Large 8-Player Naval Map:** **`[8] God of the Seas (Super Island Naval War)`** added to Battle, Naval War, FFA, Team Alliance, and Custom Maps! Features massive 208x208 oceanic terrain, 8 starting islands with deep-water naval combat, capturable tech islands (Machine Shops for fleet repair, Hospitals, Secret Labs, Airports, and Oil Derricks), and water crates (`CrateOnlyOnLand=0`) for high-seas naval crate hunting!
-- **Aggressive Island & Naval AI Overhaul:** Fixed Nightmare AI on island/water maps. AI now automatically builds multiple Shipyards (`GAYARD`, `NAYARD`, `YAYARD`), launches continuous long-range naval strike armadas (Aircraft Carriers, Dreadnoughts, Boomer Submarines, Giant Squids, Typhoons, and Destroyers), sends massive air armadas across the seas (Kirov Airships, Floating Discs, Rocketeers, and Black Eagles), and deploys hovering Robot Tanks directly onto player shorelines. Removed restrictive Battle Lab prerequisite blocks from AI naval triggers. Added **`[8] Octo Bay (Island & Bridges Naval War)`** for combined naval and bridge warfare.
-- **Custom/downloaded maps:** Standard, Custom Map, Teamgame, Duel, Airwar, Nukewar, and Navalwar now load the shared god-mode rules. This includes Mount Rush More Survival under Teamgame. Restart the client and start a new match after updating.
-- **RA2 Pro 2v2:** now loads the full god-mode rules. Its forced RA2 Classic restriction is disabled to allow Allied, Soviet, and Yuri technology. The original power-plant build-time modifier is preserved.
-- **Survival:** low power no longer adds production penalties. On **[1] Survive Death R3**, the first scripted wave starts at 1200 game seconds instead of 300 (about five real minutes at 60 simulation frames per second). First-round warnings and completion timers move with the waves.
-- Restart CnCNet and start a **new match** after updating. Deploy your MCV, then build the free Mega Reactor or Elite Academy for the cash and veterancy bonuses.
-- `BuildSpeed=0.001` does **not** guarantee literal instant production: engine production cycles and blocked factory exits still cause delays. Keep factory exits and rally points clear.
-
-The repository includes `INI/MPMaps.ini` and the customized Survival map so these fixes install with the other mod files. Configuration changes have been checked; an in-game playtest is still needed.
+- **⚡ Instant Superweapons & Support Powers (Zero Cooldown / No Waiting List):** All superweapons and support powers now have zero waiting list (`RechargeTime=0.01` ~0.6s) and are ready to fire immediately upon deployment (`SW.InitialReady=yes`), protected exclusively for the human player (`SW.AllowAI=no`). You can fire Nukes, Lightning Storms, Psychic Dominators, Genetic Mutators, Iron Curtains, Chronospheres, Paratroopers, American Airborne, Spy Planes, Psychic Reveals, and Force Shields (with 0 blackout duration) continuously without waiting!
+- **🏎️ Lag & Game Speed Optimization for Large Maps:** Unlocked 60 FPS maximum simulation speed (`GameSpeed=0`), eliminated DirectDraw stutters (`VideoBackBuffer=no`), pinned CPU thread affinity to prevent multi-core micro-stutters (`SingleProcAffinity=Yes` and `TargetFPS=60` in `ddraw.ini`), optimized AI squad limits to 40 per bot (`TotalAITeamCap=40,40,40` to eliminate pathfinding thread bottlenecks on 208x208 maps with 7 bots), disabled map-wide cell scanning (`ContentScan=no`), and disabled tree targeting (`TreeTargeting=no`).
+- **🌊 New Super Large 8-Player Naval Map:** **`[8] God of the Seas (Super Island Naval War)`** added to Battle, Naval War, FFA, Team Alliance, and Custom Maps! Features massive 208x208 oceanic terrain, 8 starting islands with deep-water naval combat, capturable tech islands (Machine Shops for fleet repair, Hospitals, Secret Labs, Airports, and Oil Derricks), and water crates (`CrateOnlyOnLand=0`) for high-seas naval crate hunting!
+- **🤖 Aggressive Island & Naval AI Overhaul:** Fixed Nightmare AI on island/water maps. AI now automatically builds multiple Shipyards (`GAYARD`, `NAYARD`, `YAYARD`), launches continuous long-range naval strike armadas (Aircraft Carriers, Dreadnoughts, Boomer Submarines, Giant Squids, Typhoons, and Destroyers), sends massive air armadas across the seas (Kirov Airships, Floating Discs, Rocketeers, and Black Eagles), and deploys hovering Robot Tanks directly onto player shorelines. Removed restrictive Battle Lab prerequisite blocks from AI naval triggers. Added **`[8] Octo Bay (Island & Bridges Naval War)`** for combined naval and bridge warfare.
+- **🗺️ Custom/Downloaded Maps Support:** Standard, Custom Map, Teamgame, Duel, Airwar, Nukewar, and Navalwar automatically load the shared god-mode rules. This includes Mount Rush More Survival under Teamgame.
+- **⚔️ RA2 Pro 2v2:** Loads the full god-mode rules with forced classic restrictions removed to allow Allied, Soviet, and Yuri tech.
+- **🛡️ Survival:** Low power no longer adds production penalties. On **[1] Survive Death R3**, the first scripted wave starts at 1200 game seconds instead of 300 (about five real minutes at 60 FPS). First-round warnings and completion timers move with the waves.
 
 ---
 
@@ -32,12 +28,13 @@ The repository includes `INI/MPMaps.ini` and the customized Survival map so thes
 3. **Extract to Base Game Directory:**
    - Extract the contents directly into your **base game installation directory** (where `gamemd.exe`, `CnCNetYRLauncher.exe`, and `ra2.ini` are located).
    - When prompted by Windows, choose **Replace / Overwrite all existing files**.
-4. **ðŸ›¡ï¸ AUTO-UPDATES BYPASSED & BLOCKED:**
-   - The repository comes pre-configured with ModMode=true in Resources/ClientDefinitions.ini and empty mirror definitions in Client/UpdaterConfig.ini & updateconfig.ini.
+4. **🛡️ AUTO-UPDATES BYPASSED & BLOCKED:**
+   - The repository comes pre-configured with `ModMode=true` in `Resources/ClientDefinitions.ini` and empty mirror definitions in `Client/UpdaterConfig.ini` & `updateconfig.ini`.
    - This permanently disables the client auto-updater and suppresses all update check notifications/popups in the lobby, ensuring your customized God Mode INI files are never overwritten.
 5. **Skirmish Lobby Settings:**
    - Open CnCNet and go to **Skirmish**.
-   - **Game Mode:** Choose any mode (Battle / Standard, Free For All, Team Alliance, Survival, etc.).
+   - **Game Mode:** Choose any mode (Battle / Standard, Naval War, Free For All, Team Alliance, Survival, etc.).
+   - **Superweapons:** Select **All** or **On**.
    - **AI Modifier:** Select **Nightmare AI (Beta)**.
    - **Starting Units:** Set to **`0`** *(CRITICAL: prevents AI from starting with free rush tanks at second 1)*.
    - **Starting Credits:** Any amount (custom buildings supply infinite money).
@@ -47,11 +44,11 @@ The repository includes `INI/MPMaps.ini` and the customized Survival map so thes
      - **Player Mega Nuclear Reactor** ($0, instant)
      - **Elite Combat Academy** ($0, instant)
    - Enjoy instant construction, infinite money, +100,000 power, and 3-chevron Elite armies!
-   - Deploy **any MCV** to unlock all standard faction buildings, including refineries, radar, airfields, repair depots, battle labs, support buildings, defenses and superweapons. **No Battle Lab or radar is required to unlock them.** Battle Labs are optional.
+   - Deploy **any MCV** to unlock all standard faction buildings, including refineries, radar, airfields, repair depots, battle labs, support buildings, defenses, and superweapons. No Battle Lab is required.
    - Build **any 1 Barracks** to unlock **all Allied, Soviet, and Yuri infantry** (plus unlimited Tanya, Boris, and Yuri Prime armies!).
    - Build **any 1 War Factory** to unlock **all Allied, Soviet, and Yuri armor & aircraft**!
-   - Build **any 1 Naval Shipyard** to unlock **all 12 Allied, Soviet, and Yuri naval units**, including transports, Dolphin, Giant Squid, Aircraft Carrier, Dreadnought, and Boomer. No radar or battle lab is required.
-   - Access **all 6 Superweapons** (Nuke, Weather Storm, Dominator, Iron Curtain, Chronosphere, Genetic Mutator) directly from your ConYard!
+   - Build **any 1 Naval Shipyard** to unlock **all 12 Allied, Soviet, and Yuri naval units**, including transports, Dolphin, Giant Squid, Aircraft Carrier, Dreadnought, and Boomer.
+   - Build **all 6 Superweapons** directly from your ConYard and fire them continuously with **zero cooldown**!
    - You have **4.5 minutes** of opening peace to build a fortress before the Nightmare AI swarm attacks!
 
 ---
@@ -65,10 +62,10 @@ The repository includes `INI/MPMaps.ini` and the customized Survival map so thes
 | **All-in-One Infantry Tab** | Building any single Barracks unlocks **all infantry**: Tanya, Boris, Yuri Prime, British Sniper, Iraqi Desolator, Cuban Terrorist, Chrono Legionnaire, SEAL, Spy, Rocketeer, Yuri Clone, Brute, Virus, and Secret Tech (Psi-Commando, Chrono Ivan, Chrono Commando). | **Player Focused** |
 | **Unlimited Hero Army** | `BuildLimit=-1` removes restrictions on **Tanya**, **Boris**, and **Yuri Prime**. You can train an unlimited army of heroes simultaneously! `AIBuildThis=no` keeps hero armies player-exclusive. | **Player Only** (`AIBuildThis=no`) |
 | **All-in-One Vehicle & Air Tab** | Building any single War Factory unlocks **all vehicles & aircraft**: Prism Tank, Mirage, Battle Fortress, Tank Destroyer, Robot Tank (immune to shutdown), Apocalypse Tank, Kirov Airship, Siege Chopper, V3, Tesla Tank, Demolition Truck, Yuri Magnetron, Master Mind, Floating Disc, Gattling Tank, Chaos Drone, Slave Miner, Harrier, Black Eagle, and Nighthawk. | **Player Focused** |
-| **All-in-One Naval Tab** | Any single Allied, Soviet, or Yuri shipyard unlocks and produces all 12 naval units across all factions. All three shipyards are available from any Construction Yard. | **Player Focused** |
+| **All-in-One Naval Tab** | Any single Allied, Soviet, or Yuri shipyard unlocks and produces all 12 naval units across all factions. All three shipyards are available from any Construction Yard with `Adjacent=30`. | **Player Focused** |
 | **All 6 Superweapons Unlocked** | Deploy your ConYard and build **all 6 Superweapons** regardless of faction: Chronosphere, Weather Controller, Iron Curtain, Nuclear Silo, Genetic Mutator, and Psychic Dominator. Blocked from AI via `AIBuildThis=no`. | **Player Only** (`AIBuildThis=no`) |
 | **Instant Superweapon & Support Power Recharge** | Zero waiting list (`RechargeTime=0.01` ~0.6s) and instant ready (`SW.InitialReady=yes`). Fire Nukes, Lightning Storms, Dominators, Mutators, Iron Curtains, Chronospheres, Paratroopers, Airborne, and Force Shield continuously without waiting. AI forbidden (`SW.AllowAI=no`). | **Player Only** (`SW.AllowAI=no`) |
-| **All-in-One Defenses Tab** | Build Grand Cannons, Prism Towers, Tesla Coils, Psychic Towers, Gatling Cannons, Patriot AA, Flak AA, and Battle Bunkers from your ConYard. | **Player Focused** |
+| **All-in-One Defenses Tab** | Build Grand Cannons, Prism Towers, Tesla Coils, Psychic Towers, Gatling Cannons, Patriot AA, Flak AA, and Battle Bunkers directly from your ConYard. | **Player Focused** |
 | **All Special Support Buildings** | Build Yuri/Soviet Cloning Vats (duplicate all trained infantry for free), Soviet Industrial Plant, Allied Ore Purifier, Yuri Grinder, and Robot Control Center right from your ConYard. | **Player Only** (`AIBuildThis=no`) |
 | **Instant Construction** | `BuildSpeed=0.001` and `BuildupTime=0.001` allow all buildings, infantry, tanks, and aircraft to finish in a fraction of a second (~0.06s). | Player-focused |
 | **Unlimited Money** | Custom buildings grant **+$1,000,000 startup cash** immediately upon placement, plus **+$50,000/sec continuous cash flow**. Your credits never run dry. | **Player Only** (`AIBuildThis=no`) |
@@ -77,30 +74,42 @@ The repository includes `INI/MPMaps.ini` and the customized Survival map so thes
 | **Mega Nuclear Reactor** | Instant $0 reactor (`PLAYERNRCT`) generates **+100,000 Power**. Just 1 single plant powers 1,000+ French Grand Cannons or Prism Towers. Available to Allied, Soviet, and Yuri. | **Player Only** (`AIBuildThis=no`) |
 | **Auto-Elite Grand Cannon & Anti-Air** | Grand Cannon, Patriot Missile AA (`GAPATR`), Soviet Flak Cannon AA, Gatling Cannon, Prism Tower, and Tesla Coil spawn as **3-Chevron Elite** upon construction with self-healing, faster firing, and +50% firepower using crash-proof native weapons. | **Player Only** |
 | **4.5-Minute Defense Grace Period** | Calibrated for 60 FPS (`AIHateDelays=16200` frames, `AttackDelay=4.5`). AI will not target or attack your base for the first 4.5 minutes, allowing you to complete layered defenses in peace. | Map & AI Options |
-| **Relentless Nightmare Swarms** | After the 4.5-minute grace period, AI attacks relentlessly: wave interval every ~3.3s–6.6s (`TeamDelays=200`), up to 60 simultaneous squads (`TotalAITeamCap=60`), and parallel factory queues enabled. | AI Opponents |
+| **Smooth 60 FPS & Anti-Lag Optimization** | Unlocked 60 FPS simulation (`GameSpeed=0`), DirectDraw buffering (`VideoBackBuffer=no`), CPU thread affinity pinned (`SingleProcAffinity=Yes` in `ddraw.ini`), and calibrated AI team caps (`TotalAITeamCap=40`) to prevent pathfinding thread bottlenecks on 208x208 maps. | Global Engine |
+| **Relentless Nightmare Swarms** | After the 4.5-minute grace period, AI attacks relentlessly: wave interval every ~3.3s–6.6s (`TeamDelays=200`), up to 40 simultaneous squads per bot, and parallel factory queues enabled. | AI Opponents |
 | **Unlimited AI Wartime Economy** | Nightmare AI retains `MultiplayerAICM=4800` (4800x income multiplier) & virtual ore purifiers to continuously build and replace massive high-tier armies. | AI Opponents |
 | **Maximum Queues** | Safe queue capacity calibrated to **30 items** per factory (`MaximumQueuedObjects=30`) to prevent production queue array overflow. | Global |
-| **All Factions & Modes Covered** | Custom buildings and balance rules cover all 10 playable countries and all 10 Skirmish game modes. | Universal |
+| **All Factions & Modes Covered** | Custom buildings and balance rules cover all 10 playable countries and all 12 Skirmish game modes. | Universal |
 | **Strict AI Separation** | Superweapons, player defenses, and custom buildings are protected by `AIBuildThis=no`. AI taskforces only build standard faction units, preventing bots from abusing cross-faction cheats. | Fair Separation |
 
 ---
 
 ## 🗺️ Customized Skirmish Game Modes
 
-The shared instant construction, academy, mega reactor, unlimited money, universal tech unlock, map reveal, and 60 FPS grace period rules are present in all 10 mode files:
+The shared instant construction, academy, mega reactor, unlimited money, universal tech unlock, map reveal, instant superweapons, and 60 FPS grace period rules are present across all 12 Skirmish mode files:
 
 | Game Mode | Configuration File |
 | :--- | :--- |
 | **Battle / Standard** | `INI/Map Code/Standard.ini` |
+| **Naval War** | `INI/Map Code/Naval War.ini` |
 | **Cooperative** | `INI/Map Code/Cooperative.ini` |
 | **Free For All** | `INI/Map Code/Free For All.ini` |
-| **Land Rush** | `INI/Map Code/Land Rush.ini` |
-| **Meat Grinder** | `INI/Map Code/Meat Grinder.ini` |
-| **Megawealth** | `INI/Map Code/Megawealth.ini` |
-| **Naval War** | `INI/Map Code/Naval War.ini` |
-| **Survival** | `INI/Map Code/Survival.ini` |
 | **Team Alliance** | `INI/Map Code/Team Alliance.ini` |
+| **Survival** | `INI/Map Code/Survival.ini` |
+| **Megawealth** | `INI/Map Code/Megawealth.ini` |
+| **Meat Grinder** | `INI/Map Code/Meat Grinder.ini` |
+| **Land Rush** | `INI/Map Code/Land Rush.ini` |
 | **Unholy Alliance** | `INI/Map Code/Unholy Alliance.ini` |
+| **RA2 Pro 2v2** | `INI/Map Code/RA2 Pro 2v2.ini` |
+| **Blitz 2v2** | `INI/Map Code/Blitz_2v2.ini` |
+
+---
+
+## 🌊 Custom 8-Player Island Maps
+
+| Map Name | Dimensions | Features |
+| :--- | :--- | :--- |
+| **`[8] God of the Seas (Super Island Naval War)`** | 208×208 (Max Engine Size) | Massive oceanic archipelago with 8 fortified starting islands, deep navigable waters for dreadnoughts/carriers/boomers, capturable central tech islands (Machine Shops, Hospitals, Secret Labs, Airports, Oil Derricks), and water crate pickups (`CrateOnlyOnLand=0`). |
+| **`[8] Octo Bay (Island & Bridges Naval War)`** | 128×138 | 8 circular starting islands connected by **32 wide bridges** and surrounding a central naval bay. Supports combined naval bombardment and ground armored assaults. |
 
 ---
 
@@ -114,19 +123,24 @@ Directly tuned in `INI/Game Options/AI/Extreme AI Beta.ini`:
 | **Global Hunt & Fire Sale** | Disabled (`AIAllToHunt=no`, `AIFireSale=no`) | Prevents immediate suicide tank charges at frame 0. |
 | **Team Retaliation** | Enabled (`TeamRetaliate=yes`) | AI vigorously fights back if fired upon. |
 | **Wave Frequency** | `TeamDelays=200,200,200` | Rapid wave intervals (~3.3s at 60 FPS, ~6.6s at 30 FPS). |
-| **Active Team Cap** | `TotalAITeamCap=100,100,100` | Up to 100 active combat squads on the map simultaneously. |
+| **Active Team Cap** | `TotalAITeamCap=40,40,40` | Up to 40 active combat squads per AI bot (~280 squads across 7 bots) calibrated to eliminate CPU pathfinding bottlenecks on huge 208x208 maps. |
+| **Content Scanning** | Disabled (`ContentScan=no`) | Eliminates CPU-draining cell-by-cell sweeps of the entire 208x208 grid every frame. |
+| **Tree Targeting** | Disabled (`TreeTargeting=no`) | Prevents AI calculating attack routines against environmental trees. |
 | **AI Credit Multiplier** | `MultiplayerAICM=4800,4800,4800` | 4800x income multiplier cheat for endless enemy funding. |
 | **Virtual Ore Purifiers** | `AIVirtualPurifiers=50,50,50` | Maximum refinery income for AI bots. |
 | **Base Targeting Bias** | `BaseBias=20`, `EnemyHouseThreatBonus=50.0` | Focuses attacks directly into the player's base defense system. |
 | **Parallel AI Queues** | Enabled (`AllowParallelAIQueues=yes`) | AI builds infantry, armor, and air from multiple factories simultaneously. |
 | **AI Structure Build Delay** | `BuildDelay=0.01` in all difficulty sections | AI constructs bases and replacement buildings rapidly. |
+| **Naval Shipyards** | `AIBuildCounts=2,2,2` & `AIBaseNormal=yes` | AI builds dual shipyards on water maps and produces Dreadnoughts, Aircraft Carriers, Boomer Subs, Typhoons, and Squids. |
 
 ---
 
 ## 📁 Repository Structure & Rollback
 
 - `INI/Map Code/`: Game mode configurations and historical `.original_backup` files.
-- `INI/Game Options/AI/Extreme AI Beta.ini`: Adjusted Nightmare AI option file.
+- `INI/Game Options/AI/Extreme AI Beta.ini`: Adjusted Nightmare AI option file with naval, air, and lag fixes.
+- `INI/Game Options/SuperWeapons/`: Superweapon option files (`All.ini`, `Defensive.ini`, `Offensive.ini`).
+- `Maps/`: Custom maps (`8_god_of_the_seas.map` and `.png`).
 - `doc/status.md`: Detailed changelog, technical documentation, and findings.
 - `doc/backups/`: Historical backups of configuration files.
 
