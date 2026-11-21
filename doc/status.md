@@ -556,3 +556,12 @@ Validation: all seven custom-mode routes resolve; previous mode/map settings unc
   - Calibrated `TotalAITeamCap=40,40,40` across `Extreme AI Beta.ini` and all 12 skirmish mode files (providing a massive, relentless swarm of ~280 total bot squads without saturating the single-threaded pathfinding queue).
   - Disabled map-wide cell scanning (`ContentScan=no`) across all difficulty sections in `Extreme AI Beta.ini`.
   - Added `TreeTargeting=no` under `[General]` across all modes and Nightmare AI to stop CPU cycles wasted targeting environmental trees.
+
+
+## 2026-11-21: Effectively Permanent Iron Curtain
+
+- Set `[IronCurtainSpecial]` `Protect.Duration=2000000000` and `Protect.PlayFadeSoundTime=0` across all 12 god-mode skirmish modes, All/Defensive superweapon options, and Custom/Battle copies of God of the Seas and Malaboo Bay.
+- Ares expresses this duration in frames: over 385 days at 60 FPS. This is a finite timer intended to outlast any normal match, not a literal infinite-duration engine flag.
+- Existing `SW.AllowAI=no`, instant recharge, targeting rules, and Force Shield duration are preserved.
+- Start a new match to load the changed rules. Configuration consistency checked; in-game behavior still needs a live match check.
+- Reference: https://ares-developers.github.io/Ares-docs/new/superweapons/types/protect.html
